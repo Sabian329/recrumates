@@ -1,3 +1,5 @@
+import heroImage from "../assets/hero.png";
+
 export default function About() {
 	const values = [
 		{
@@ -27,33 +29,37 @@ export default function About() {
 	];
 
 	return (
-		<section id="about" className="py-20 px-4 bg-white dark:bg-gray-900">
+		<section id="about" className="py-24 px-4  bg-neutral-900">
 			<div className="container mx-auto max-w-6xl">
-				<div className="text-center mb-16">
-					<h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+				<div className="text-center mb-14">
+					<p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
+						Wartości
+					</p>
+					<h2 className="mb-2 text-3xl font-semibold tracking-tight text-neutral-900 dark:text-white md:text-4xl md:tracking-widest">
 						O nas
 					</h2>
-					<p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-						RecruMates to więcej niż agencja rekrutacyjna - to przestrzeń, gdzie
+					<div className="mx-auto mb-6 h-px w-12 bg-teal-500/80" aria-hidden />
+					<p className="mx-auto max-w-2xl text-lg font-thin leading-relaxed text-neutral-600 dark:text-neutral-400 md:text-xl">
+						RecruMates to więcej niż agencja rekrutacyjna — to przestrzeń, gdzie
 						technologia spotyka się z autentycznym, ludzkim podejściem.
 					</p>
 				</div>
 
-				<div className="mb-16">
-					<h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+				<div className="mb-14">
+					<h3 className="mb-8 text-center text-lg font-semibold uppercase tracking-[0.08em] text-neutral-900 dark:text-white">
 						Co nas wyróżnia?
 					</h3>
-					<div className="grid md:grid-cols-2 gap-8">
+					<div className="grid md:grid-cols-2 gap-6">
 						{values.map((value) => (
 							<div
 								key={value.title}
-								className="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg hover:shadow-lg transition-shadow"
+								className="bg-neutral-50 dark:bg-neutral-950/60 p-8 rounded-xl border border-neutral-200/80 dark:border-neutral-800/80 transition-colors"
 							>
-								<div className="text-4xl mb-4">{value.icon}</div>
-								<h4 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+								<div className="text-3xl mb-4">{value.icon}</div>
+								<h4 className="text-lg font-semibold tracking-tight text-neutral-900 dark:text-white mb-2">
 									{value.title}
 								</h4>
-								<p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+								<p className="text-sm font-normal leading-relaxed text-neutral-600 dark:text-neutral-400">
 									{value.description}
 								</p>
 							</div>
@@ -61,16 +67,16 @@ export default function About() {
 					</div>
 				</div>
 
-				<div className="bg-green-50 dark:bg-green-900/20 p-8 md:p-12 rounded-lg text-center border border-green-200 dark:border-green-800">
-					<h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+				<div className="bg-neutral-50 dark:bg-neutral-950/60 p-8 md:p-12 rounded-xl text-center border border-neutral-200/80 dark:border-neutral-800/80">
+					<h3 className="mb-4 text-xl font-semibold uppercase tracking-[0.08em] text-neutral-900 dark:text-white">
 						Dlaczego warto nas poznać?
 					</h3>
-					<p className="text-lg text-gray-700 dark:text-gray-300 mb-6 max-w-3xl mx-auto">
+					<p className="mx-auto mb-5 max-w-2xl text-base font-normal leading-relaxed text-neutral-600 dark:text-neutral-400">
 						Robimy to, co kochamy, i widać to w naszej pracy. Łączymy serca,
 						umysły i technologię, aby pomagać firmom rosnąć, a kandydatom
 						znaleźć miejsce, gdzie mogą być sobą.
 					</p>
-					<p className="text-xl font-semibold text-green-700 dark:text-green-400">
+					<p className="text-lg font-medium text-teal-600 dark:text-teal-400">
 						RecruMates. Tworzymy jakościową i przyjazną rekrutację, na luzie :)
 					</p>
 				</div>

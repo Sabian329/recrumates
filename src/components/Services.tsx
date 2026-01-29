@@ -1,3 +1,5 @@
+import hero1 from "../assets/hero1.png";
+
 export default function Services() {
 	const services = [
 		{
@@ -27,70 +29,71 @@ export default function Services() {
 	];
 
 	return (
-		<section id="services" className="py-20 px-4 bg-gray-50 dark:bg-gray-800">
+		<section
+			id="services"
+			className="py-24 px-4 bg-neutral-50 dark:bg-neutral-900/30"
+		>
 			<div className="container mx-auto max-w-6xl">
-				<div className="text-center mb-16">
-					<h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+				<div className="text-center mb-14">
+					<p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
+						Co robimy
+					</p>
+					<h2 className="mb-2 text-3xl font-semibold tracking-tight text-neutral-900 dark:text-white md:text-4xl md:tracking-widest">
 						Usługi
 					</h2>
-					<p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+					<div className="mx-auto mb-6 h-px w-12 bg-teal-500/80" aria-hidden />
+					<p className="mx-auto max-w-2xl text-lg font-thin leading-relaxed text-neutral-600 dark:text-neutral-400 md:text-xl">
 						RecruMates to agencja rekrutacyjna znana z przyjaznego podejścia do
-						rozmówców - profesjonalizm i empatia połączone ze zrozumieniem wielu
+						rozmówców — profesjonalizm i empatia połączone ze zrozumieniem wielu
 						obszarów biznesu.
 					</p>
 				</div>
 
-				<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+				<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
 					{services.map((service) => (
 						<div
 							key={service.title}
-							className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow"
+							className="bg-white dark:bg-neutral-950/80 p-6 rounded-xl border border-neutral-200/80 dark:border-neutral-800/80 transition-colors"
 						>
-							<div className="text-4xl mb-4">{service.icon}</div>
-							<h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+							<div className="text-3xl mb-4">{service.icon}</div>
+							<h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-2 tracking-tight">
 								{service.title}
 							</h3>
-							<p className="text-gray-600 dark:text-gray-300">
+							<p className="text-neutral-600 dark:text-neutral-400 text-sm font-normal leading-relaxed">
 								{service.description}
 							</p>
 						</div>
 					))}
 				</div>
 
-				<div className="bg-white dark:bg-gray-900 p-8 md:p-12 rounded-lg shadow-lg">
-					<h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+				<div className="bg-white dark:bg-neutral-950/80 p-8 md:p-12 rounded-xl border border-neutral-200/80 dark:border-neutral-800/80">
+					<h3 className="mb-6 text-center text-lg font-semibold uppercase tracking-[0.08em] text-neutral-900 dark:text-white">
 						Co możemy dla Ciebie zrobić?
 					</h3>
-					<ul className="space-y-4 max-w-2xl mx-auto">
-						<li className="flex items-start gap-4">
-							<span className="text-green-600 dark:text-green-500 text-2xl">
-								✓
-							</span>
-							<span className="text-lg text-gray-700 dark:text-gray-300">
-								Znaleźć najlepsze talenty na rynku - szybko i efektywnie
+					<ul className="mx-auto max-w-xl space-y-4">
+						<li className="flex items-start gap-3">
+							<span className="text-teal-500 mt-0.5 shrink-0">✓</span>
+							<span className="font-normal text-neutral-600 dark:text-neutral-400">
+								Znaleźć najlepsze talenty na rynku — szybko i efektywnie
 							</span>
 						</li>
-						<li className="flex items-start gap-4">
-							<span className="text-green-600 dark:text-green-500 text-2xl">
-								✓
-							</span>
-							<span className="text-lg text-gray-700 dark:text-gray-300">
+						<li className="flex items-start gap-3">
+							<span className="text-teal-500 mt-0.5 shrink-0">✓</span>
+							<span className="font-normal text-neutral-600 dark:text-neutral-400">
 								Doradzić, jak ulepszyć procesy rekrutacyjne
 							</span>
 						</li>
-						<li className="flex items-start gap-4">
-							<span className="text-green-600 dark:text-green-500 text-2xl">
-								✓
-							</span>
-							<span className="text-lg text-gray-700 dark:text-gray-300">
+						<li className="flex items-start gap-3">
+							<span className="text-teal-500 mt-0.5 shrink-0">✓</span>
+							<span className="font-normal text-neutral-600 dark:text-neutral-400">
 								Wspierać Twoją firmę w budowaniu przyszłościowych zespołów
 							</span>
 						</li>
 					</ul>
-					<div className="text-center mt-8">
+					<div className="mt-8 text-center">
 						<a
 							href="#contact"
-							className="inline-block bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 text-white font-semibold py-4 px-8 rounded-lg transition-colors shadow-lg"
+							className="inline-flex items-center justify-center rounded-lg border border-teal-500/50 bg-teal-600 px-8 py-3.5 text-sm font-medium text-white transition-colors hover:bg-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950"
 						>
 							Zamów usługi
 						</a>

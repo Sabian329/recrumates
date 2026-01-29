@@ -1,146 +1,202 @@
+import contactBackground from "../assets/contact-bg.png";
+
+const inputBase =
+	"w-full rounded-lg border border-neutral-200 bg-white px-4 py-3 text-sm font-normal text-neutral-900 placeholder:text-neutral-400 transition-shadow focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/30 dark:border-neutral-700 dark:bg-neutral-950/80 dark:text-white dark:placeholder:text-neutral-500";
+
 export default function Contact() {
 	return (
-		<section id="contact" className="py-20 px-4 bg-white dark:bg-gray-900">
-			<div className="container mx-auto max-w-4xl">
-				<div className="text-center mb-12">
-					<h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+		<section
+			id="contact"
+			className="relative py-24 px-4 overflow-hidden bg-white dark:bg-neutral-950"
+		>
+			{/* Subtle background */}
+			<div className="absolute inset-0 z-0 opacity-[0.17]" aria-hidden>
+				<img
+					src={contactBackground}
+					alt=""
+					className="h-full w-full object-cover object-center"
+				/>
+			</div>
+
+			<div className="container relative z-10 mx-auto max-w-4xl">
+				{/* Section header */}
+				<header className="mb-14 text-center">
+					<p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
+						Napisz do nas
+					</p>
+					<h2 className="mb-2 text-3xl font-semibold tracking-tight text-neutral-900 dark:text-white md:text-4xl md:tracking-widest">
 						Kontakt
 					</h2>
-					<p className="text-xl text-gray-600 dark:text-gray-300">
+					<div className="mx-auto mb-6 h-px w-12 bg-teal-500/80" aria-hidden />
+					<p className="mx-auto max-w-xl text-lg font-thin leading-relaxed text-neutral-600 dark:text-neutral-400 md:text-xl">
 						Skontaktuj się z nami i dowiedz się, jak możemy pomóc
 					</p>
-				</div>
+				</header>
 
-				<div className="grid md:grid-cols-2 gap-8">
-					{/* Contact Info */}
-					<div className="space-y-6">
-						<div>
-							<h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+				<div className="grid gap-10 md:grid-cols-2 md:items-start md:gap-12">
+					{/* Left: Contact info + CTA */}
+					<div className="flex flex-col gap-6">
+						{/* Contact details card */}
+						<div className="rounded-xl border border-neutral-200/80 bg-neutral-50/80 p-6 dark:border-neutral-800/80 dark:bg-neutral-900/50">
+							<h3 className="mb-5 text-sm font-semibold uppercase tracking-[0.08em] text-neutral-900 dark:text-white">
 								Informacje kontaktowe
 							</h3>
-							<div className="space-y-4">
-								<div className="flex items-start gap-4">
-									<span className="text-2xl">📍</span>
+							<ul className="space-y-0 divide-y divide-neutral-200/80 dark:divide-neutral-800/80">
+								<li className="flex items-start gap-4 py-4 first:pt-0 last:pb-0">
+									<span
+										className="mt-0.5 text-neutral-400 dark:text-neutral-500"
+										aria-hidden
+									>
+										📍
+									</span>
 									<div>
-										<p className="font-semibold text-gray-900 dark:text-white">
+										<p className="text-xs font-medium uppercase tracking-[0.06em] text-neutral-500 dark:text-neutral-400">
 											Siedziba
 										</p>
-										<p className="text-gray-600 dark:text-gray-400">
+										<p className="mt-1 text-sm font-normal leading-relaxed text-neutral-900 dark:text-white">
 											Wrocław, Dolnośląskie
 											<br />
 											Polska
 										</p>
 									</div>
-								</div>
-								<div className="flex items-start gap-4">
-									<span className="text-2xl">💼</span>
+								</li>
+								<li className="flex items-start gap-4 py-4 first:pt-0 last:pb-0">
+									<span
+										className="mt-0.5 text-neutral-400 dark:text-neutral-500"
+										aria-hidden
+									>
+										💼
+									</span>
 									<div>
-										<p className="font-semibold text-gray-900 dark:text-white">
+										<p className="text-xs font-medium uppercase tracking-[0.06em] text-neutral-500 dark:text-neutral-400">
 											Branża
 										</p>
-										<p className="text-gray-600 dark:text-gray-400">
+										<p className="mt-1 text-sm font-normal text-neutral-900 dark:text-white">
 											Headhunting
 										</p>
 									</div>
-								</div>
-								<div className="flex items-start gap-4">
-									<span className="text-2xl">👥</span>
+								</li>
+								<li className="flex items-start gap-4 py-4 first:pt-0 last:pb-0">
+									<span
+										className="mt-0.5 text-neutral-400 dark:text-neutral-500"
+										aria-hidden
+									>
+										👥
+									</span>
 									<div>
-										<p className="font-semibold text-gray-900 dark:text-white">
+										<p className="text-xs font-medium uppercase tracking-[0.06em] text-neutral-500 dark:text-neutral-400">
 											Wielkość firmy
 										</p>
-										<p className="text-gray-600 dark:text-gray-400">
-											11-50 pracowników
+										<p className="mt-1 text-sm font-normal text-neutral-900 dark:text-white">
+											11–50 pracowników
 										</p>
 									</div>
-								</div>
-							</div>
+								</li>
+							</ul>
 						</div>
 
-						<div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-800">
-							<h4 className="font-bold text-gray-900 dark:text-white mb-2">
+						{/* CTA card */}
+						<div className="rounded-xl border border-neutral-200/80 bg-neutral-50/80 p-6 dark:border-neutral-800/80 dark:bg-neutral-900/50">
+							<h4 className="mb-2 text-sm font-semibold uppercase tracking-[0.06em] text-neutral-900 dark:text-white">
 								Gotowy na współpracę?
 							</h4>
-							<p className="text-gray-700 dark:text-gray-300 mb-4">
-								Skontaktuj się z nami, aby omówić Twoje potrzeby rekrutacyjne.
+							<p className="mb-5 text-sm font-normal leading-relaxed text-neutral-600 dark:text-neutral-400">
+								Opowiedz nam o swoich potrzebach rekrutacyjnych — odpowiemy w
+								ciągu 24 godzin.
 							</p>
 							<a
 								href="mailto:kontakt@recrumates.pl"
-								className="inline-block bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+								className="inline-flex min-w-[180px] items-center justify-center rounded-lg border border-teal-500/50 bg-teal-600 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950"
 							>
-								Wyślij wiadomość
+								Wyślij e-mail
 							</a>
+							<p className="mt-4 text-xs font-normal text-neutral-500 dark:text-neutral-400">
+								lub napisz na{" "}
+								<a
+									href="mailto:kontakt@recrumates.pl"
+									className="text-teal-600 underline decoration-teal-500/30 underline-offset-2 hover:decoration-teal-500 dark:text-teal-400"
+								>
+									kontakt@recrumates.pl
+								</a>
+							</p>
 						</div>
 					</div>
 
-					{/* Contact Form */}
-					<div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg">
-						<h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+					{/* Right: Form */}
+					<div className="rounded-xl border border-neutral-200/80 bg-neutral-50/80 p-6 dark:border-neutral-800/80 dark:bg-neutral-900/50 md:p-8">
+						<h3 className="mb-6 text-sm font-semibold uppercase tracking-[0.08em] text-neutral-900 dark:text-white">
 							Wyślij zapytanie
 						</h3>
-						<form className="space-y-4">
+						<form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
 							<div>
 								<label
-									htmlFor="name"
-									className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+									htmlFor="contact-name"
+									className="mb-1.5 block text-xs font-medium uppercase tracking-[0.06em] text-neutral-600 dark:text-neutral-400"
 								>
 									Imię i nazwisko
 								</label>
 								<input
 									type="text"
-									id="name"
+									id="contact-name"
 									name="name"
 									required
-									className="w-full px-4 py-3 bg-white dark:bg-gray-900 text-gray-900 dark:text-white border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:border-green-600 dark:focus:border-green-500"
+									placeholder="Jan Kowalski"
+									className={inputBase}
 								/>
 							</div>
 							<div>
 								<label
-									htmlFor="email"
-									className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+									htmlFor="contact-email"
+									className="mb-1.5 block text-xs font-medium uppercase tracking-[0.06em] text-neutral-600 dark:text-neutral-400"
 								>
 									Email
 								</label>
 								<input
 									type="email"
-									id="email"
+									id="contact-email"
 									name="email"
 									required
-									className="w-full px-4 py-3 bg-white dark:bg-gray-900 text-gray-900 dark:text-white border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:border-green-600 dark:focus:border-green-500"
+									placeholder="jan@firma.pl"
+									className={inputBase}
 								/>
 							</div>
 							<div>
 								<label
-									htmlFor="company"
-									className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+									htmlFor="contact-company"
+									className="mb-1.5 block text-xs font-medium uppercase tracking-[0.06em] text-neutral-600 dark:text-neutral-400"
 								>
-									Firma (opcjonalnie)
+									Firma{" "}
+									<span className="font-normal normal-case text-neutral-400">
+										(opcjonalnie)
+									</span>
 								</label>
 								<input
 									type="text"
-									id="company"
+									id="contact-company"
 									name="company"
-									className="w-full px-4 py-3 bg-white dark:bg-gray-900 text-gray-900 dark:text-white border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:border-green-600 dark:focus:border-green-500"
+									placeholder="Nazwa firmy"
+									className={inputBase}
 								/>
 							</div>
 							<div>
 								<label
-									htmlFor="message"
-									className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+									htmlFor="contact-message"
+									className="mb-1.5 block text-xs font-medium uppercase tracking-[0.06em] text-neutral-600 dark:text-neutral-400"
 								>
 									Wiadomość
 								</label>
 								<textarea
-									id="message"
+									id="contact-message"
 									name="message"
 									rows={5}
 									required
-									className="w-full px-4 py-3 bg-white dark:bg-gray-900 text-gray-900 dark:text-white border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:border-green-600 dark:focus:border-green-500 resize-none"
-								></textarea>
+									placeholder="Opisz krótko swoje potrzeby rekrutacyjne..."
+									className={`${inputBase} resize-none`}
+								/>
 							</div>
 							<button
 								type="submit"
-								className="w-full bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 text-white font-semibold py-4 px-6 rounded-lg transition-colors"
+								className="w-full rounded-lg border border-teal-500/50 bg-teal-600 px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950"
 							>
 								Wyślij wiadomość
 							</button>

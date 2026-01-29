@@ -42,39 +42,43 @@ export default function FAQ() {
 	];
 
 	return (
-		<section id="faq" className="py-20 px-4 bg-gray-50 dark:bg-gray-800">
-			<div className="container mx-auto max-w-4xl">
+		<section id="faq" className="py-24 px-4 bg-neutral-50 dark:bg-neutral-900/30">
+			<div className="container mx-auto max-w-3xl">
 				<div className="text-center mb-12">
-					<h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+					<p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
+						Pytania
+					</p>
+					<h2 className="mb-2 text-3xl font-semibold tracking-tight text-neutral-900 dark:text-white md:text-4xl md:tracking-widest">
 						Często zadawane pytania
 					</h2>
-					<p className="text-xl text-gray-600 dark:text-gray-300">
+					<div className="mx-auto mb-6 h-px w-12 bg-teal-500/80" aria-hidden />
+					<p className="text-lg font-thin text-neutral-600 dark:text-neutral-400 md:text-xl">
 						Odpowiedzi na najczęściej zadawane pytania
 					</p>
 				</div>
 
-				<div className="space-y-4">
+				<div className="space-y-3">
 					{faqs.map((faq, index) => (
 						<div
 							key={`faq-${faq.question.slice(0, 20)}`}
-							className="bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden"
+							className="overflow-hidden rounded-xl border border-neutral-200/80 bg-white dark:border-neutral-800/80 dark:bg-neutral-950/80"
 						>
 							<button
 								type="button"
 								onClick={() => setOpenIndex(openIndex === index ? null : index)}
-								className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+								className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-neutral-50/80 dark:hover:bg-neutral-900/50 transition-colors"
 							>
-								<span className="text-lg font-semibold text-gray-900 dark:text-white pr-4">
+								<span className="text-base font-medium text-neutral-900 dark:text-white pr-4 text-left">
 									{faq.question}
 								</span>
 								<svg
-									className={`w-6 h-6 text-green-600 dark:text-green-500 transition-transform flex-shrink-0 ${
+									className={`w-5 h-5 text-teal-500 transition-transform flex-shrink-0 ${
 										openIndex === index ? "rotate-180" : ""
 									}`}
 									fill="none"
 									strokeLinecap="round"
 									strokeLinejoin="round"
-									strokeWidth="2"
+									strokeWidth="1.5"
 									viewBox="0 0 24 24"
 									stroke="currentColor"
 									aria-hidden="true"
@@ -85,7 +89,7 @@ export default function FAQ() {
 							</button>
 							{openIndex === index && (
 								<div className="px-6 pb-5">
-									<p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+									<p className="text-neutral-600 dark:text-neutral-400 leading-relaxed font-normal text-sm">
 										{faq.answer}
 									</p>
 								</div>

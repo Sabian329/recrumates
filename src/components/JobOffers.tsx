@@ -1,3 +1,5 @@
+import heroImage from "../assets/hero.png";
+
 interface JobOffer {
 	id: number;
 	title: string;
@@ -22,29 +24,33 @@ export default function JobOffers() {
 	];
 
 	return (
-		<section id="jobs" className="py-20 px-4 bg-white dark:bg-gray-900">
+		<section id="jobs" className="py-24 px-4 bg-white dark:bg-neutral-950">
 			<div className="container mx-auto max-w-6xl">
 				<div className="text-center mb-12">
-					<h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+					<p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
+						Kariera
+					</p>
+					<h2 className="mb-2 text-3xl font-semibold tracking-tight text-neutral-900 dark:text-white md:text-4xl md:tracking-widest">
 						Oferty pracy
 					</h2>
-					<p className="text-xl text-gray-600 dark:text-gray-300">
-						RecruMates ma {jobOffers.length} otwartą ofertę pracy - znajdź
+					<div className="mx-auto mb-6 h-px w-12 bg-teal-500/80" aria-hidden />
+					<p className="mx-auto max-w-xl text-lg font-thin text-neutral-600 dark:text-neutral-400 md:text-xl">
+						RecruMates ma {jobOffers.length} otwartą ofertę pracy — znajdź
 						odpowiednią dla siebie
 					</p>
 				</div>
 
 				{/* Search Bar */}
 				<div className="max-w-2xl mx-auto mb-12">
-					<div className="flex flex-col sm:flex-row gap-4">
+					<div className="flex flex-col sm:flex-row gap-3">
 						<input
 							type="text"
 							placeholder="Stanowisko lub słowo kluczowe"
-							className="flex-1 px-6 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:border-green-600 dark:focus:border-green-500"
+							className="flex-1 rounded-lg border border-neutral-200 bg-white px-5 py-3.5 font-normal text-neutral-900 placeholder:text-neutral-400 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/30 dark:border-neutral-700 dark:bg-neutral-900/80 dark:text-white dark:placeholder:text-neutral-500"
 						/>
 						<button
 							type="button"
-							className="bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 text-white font-semibold py-4 px-8 rounded-lg transition-colors"
+							className="rounded-lg border border-teal-500/50 bg-teal-600 px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950"
 						>
 							Szukaj
 						</button>
@@ -53,42 +59,44 @@ export default function JobOffers() {
 
 				{/* Job Offers List */}
 				<div className="mb-8">
-					<h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+					<h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-6 tracking-tight">
 						Niedawno opublikowane oferty pracy
 					</h3>
-					<div className="space-y-6">
+					<div className="space-y-4">
 						{jobOffers.map((job) => (
 							<div
 								key={job.id}
-								className="bg-gray-50 dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg transition-shadow"
+								className="rounded-xl border border-neutral-200/80 bg-neutral-50 p-6 transition-colors dark:border-neutral-800/80 dark:bg-neutral-900/50"
 							>
 								<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 									<div className="flex-1">
 										<div className="flex items-center gap-3 mb-2">
-											<div className="w-12 h-12 bg-white dark:bg-gray-900 border-2 border-gray-800 dark:border-gray-700 flex items-center justify-center rounded">
-												<span className="text-sm font-bold">
-													<span className="text-black dark:text-white">R</span>
-													<span className="text-green-600 dark:text-green-500">
+											<div className="w-11 h-11 bg-neutral-100 dark:bg-neutral-800 border border-neutral-200/80 dark:border-neutral-700 flex items-center justify-center rounded-xl">
+												<span className="text-sm font-semibold tracking-tight">
+													<span className="text-neutral-800 dark:text-white">
+														R
+													</span>
+													<span className="text-teal-600 dark:text-teal-400">
 														M
 													</span>
 												</span>
 											</div>
 											<div>
-												<h4 className="text-xl font-bold text-gray-900 dark:text-white">
+												<h4 className="text-lg font-semibold text-neutral-900 dark:text-white tracking-tight">
 													{job.title}
 												</h4>
-												<p className="text-gray-600 dark:text-gray-400">
+												<p className="text-neutral-500 dark:text-neutral-400 text-sm font-normal">
 													{job.company}
 												</p>
 											</div>
 										</div>
-										<div className="flex flex-wrap items-center gap-4 mt-4 text-sm text-gray-600 dark:text-gray-400">
-											<span className="flex items-center gap-2">
+										<div className="flex flex-wrap items-center gap-4 mt-3 text-sm text-neutral-500 dark:text-neutral-400 font-normal">
+											<span className="flex items-center gap-1.5">
 												<span aria-label="Lokalizacja">📍</span> {job.location}
 											</span>
-											<span className="flex items-center gap-2 text-green-600 dark:text-green-500">
+											<span className="flex items-center gap-2 text-teal-600 dark:text-teal-400">
 												<span
-													className="w-2 h-2 bg-green-600 dark:bg-green-500 rounded-full animate-pulse"
+													className="w-1.5 h-1.5 bg-teal-500 rounded-full animate-pulse"
 													aria-label="Status aktywny"
 												></span>
 												{job.status}
@@ -99,18 +107,18 @@ export default function JobOffers() {
 											</span>
 										</div>
 									</div>
-									<div className="flex items-center gap-4">
+									<div className="flex items-center gap-3">
 										<button
 											type="button"
-											className="p-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors"
+											className="p-2.5 hover:bg-neutral-200/80 dark:hover:bg-neutral-800 rounded-xl transition-colors"
 											aria-label="Zapisz ofertę"
 										>
 											<svg
-												className="w-6 h-6 text-gray-600 dark:text-gray-400"
+												className="w-5 h-5 text-neutral-500 dark:text-neutral-400"
 												fill="none"
 												strokeLinecap="round"
 												strokeLinejoin="round"
-												strokeWidth="2"
+												strokeWidth="1.5"
 												viewBox="0 0 24 24"
 												stroke="currentColor"
 											>
@@ -119,7 +127,7 @@ export default function JobOffers() {
 										</button>
 										<a
 											href="#contact"
-											className="bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors whitespace-nowrap"
+											className="whitespace-nowrap rounded-lg border border-teal-500/50 bg-teal-600 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950"
 										>
 											Aplikuj
 										</a>
@@ -134,7 +142,7 @@ export default function JobOffers() {
 					<div className="text-center">
 						<a
 							href="#contact"
-							className="text-green-600 dark:text-green-500 hover:text-green-700 dark:hover:text-green-400 font-semibold text-lg inline-flex items-center gap-2"
+							className="text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 font-medium text-sm inline-flex items-center gap-2 transition-colors"
 						>
 							Pokaż wszystkie oferty pracy →
 						</a>

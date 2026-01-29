@@ -5,7 +5,18 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ["Poppins", "sans-serif"],
+				sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+			},
+			fontWeight: {
+				normal: "400",
+				medium: "500",
+				semibold: "600",
+			},
+			colors: {
+				surface: {
+					DEFAULT: "#fafafa",
+					dark: "#0a0a0a",
+				},
 			},
 		},
 	},
