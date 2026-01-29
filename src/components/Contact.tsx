@@ -1,4 +1,4 @@
-import contactBackground from "../assets/contact-bg.png";
+import contactBackground from "../assets/contact-bg.jpg";
 
 const inputBase =
 	"w-full rounded-lg border border-neutral-200 bg-white px-4 py-3 text-sm font-normal text-neutral-900 placeholder:text-neutral-400 transition-shadow focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/30 dark:border-neutral-700 dark:bg-neutral-950/80 dark:text-white dark:placeholder:text-neutral-500";
