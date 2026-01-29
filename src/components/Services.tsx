@@ -1,4 +1,4 @@
-import hero1 from "../assets/hero1.png";
+//import hero1 from "../assets/hero1.png";
 
 export default function Services() {
 	const services = [
