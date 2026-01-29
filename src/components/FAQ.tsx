@@ -42,7 +42,7 @@ export default function FAQ() {
 	];
 
 	return (
-		<section id="faq" className="py-24 px-4 bg-neutral-50 dark:bg-neutral-900/30">
+		<section id="faq" className="py-24 px-4 bg-neutral-900/30">
 			<div className="container mx-auto max-w-3xl">
 				<div className="text-center mb-12">
 					<p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">

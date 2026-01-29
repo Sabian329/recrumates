@@ -24,7 +24,7 @@ export default function JobOffers() {
 	];
 
 	return (
-		<section id="jobs" className="py-24 px-4 bg-white dark:bg-neutral-950">
+		<section id="jobs" className="py-24 px-4 bg-neutral-950">
 			<div className="container mx-auto max-w-6xl">
 				<div className="text-center mb-12">
 					<p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">

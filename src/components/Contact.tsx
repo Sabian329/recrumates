@@ -7,7 +7,7 @@ export default function Contact() {
 	return (
 		<section
 			id="contact"
-			className="relative py-24 px-4 overflow-hidden bg-white dark:bg-neutral-950"
+			className="relative py-24 px-4 overflow-hidden bg-neutral-950"
 		>
 			{/* Subtle background */}
 			<div className="absolute inset-0 z-0 opacity-[0.17]" aria-hidden>
@@ -33,7 +33,7 @@ export default function Contact() {
 					</p>
 				</header>
 
-				<div className="grid gap-10 md:grid-cols-2 md:items-start md:gap-12">
+				<div className="grid gap-10 md:grid-cols-2 md:items-start md:gap-6">
 					{/* Left: Contact info + CTA */}
 					<div className="flex flex-col gap-6">
 						{/* Contact details card */}
@@ -96,8 +96,8 @@ export default function Contact() {
 						</div>
 
 						{/* CTA card */}
-						<div className="rounded-xl border border-neutral-200/80 bg-neutral-50/80 p-6 dark:border-neutral-800/80 dark:bg-neutral-900/50">
-							<h4 className="mb-2 text-sm font-semibold uppercase tracking-[0.06em] text-neutral-900 dark:text-white">
+						<div className="rounded-xl border h-[275px] border-neutral-200/80 bg-neutral-50/80 p-6 dark:border-neutral-800/80 dark:bg-neutral-900/50">
+							<h4 className="mb-2 text-sm font-semibold uppercase tracking-[0.06em] text-neutral-900 dark:text-white flex items-start justify-start">
 								Gotowy na współpracę?
 							</h4>
 							<p className="mb-5 text-sm font-normal leading-relaxed text-neutral-600 dark:text-neutral-400">

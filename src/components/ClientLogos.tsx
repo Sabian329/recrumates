@@ -38,7 +38,7 @@ const clients = [
 
 export default function ClientLogos() {
 	return (
-		<section className="py-24 px-4 bg-white dark:bg-neutral-900">
+		<section className="py-24 px-4 text-white s	bg-neutral-900">
 			<div className="container mx-auto max-w-6xl">
 				<div className="text-center mb-14">
 					<p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
