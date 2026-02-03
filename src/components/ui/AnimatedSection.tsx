@@ -18,6 +18,7 @@ export default function AnimatedSection({
 	className,
 	// @ts-ignore
 	transition = defaultTransition,
+
 	viewport = defaultViewport,
 	...props
 }: AnimatedSectionProps) {
