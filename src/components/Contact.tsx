@@ -1,4 +1,12 @@
 import contactBackground from "../assets/contact-bg.jpg";
+import {
+	MapPin,
+	Phone,
+	Mail,
+	Linkedin,
+	Instagram,
+	Facebook,
+} from "lucide-react";
 
 const inputBase =
 	"w-full rounded-lg border border-neutral-200 bg-white px-4 py-3 text-sm font-normal text-neutral-900 placeholder:text-neutral-400 transition-shadow focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/30 dark:border-neutral-700 dark:bg-neutral-950/80 dark:text-white dark:placeholder:text-neutral-500";
@@ -43,12 +51,10 @@ export default function Contact() {
 							</h3>
 							<ul className="space-y-0 divide-y divide-neutral-200/80 dark:divide-neutral-800/80">
 								<li className="flex items-start gap-4 py-4 first:pt-0 last:pb-0">
-									<span
-										className="mt-0.5 text-neutral-400 dark:text-neutral-500"
-										aria-hidden
-									>
-										📍
-									</span>
+									<MapPin
+										className="mt-0.5 h-5 w-5 flex-shrink-0 text-neutral-400 dark:text-neutral-500"
+										aria-hidden="true"
+									/>
 									<div>
 										<p className="text-xs font-medium uppercase tracking-[0.06em] text-neutral-500 dark:text-neutral-400">
 											Siedziba
@@ -61,34 +67,30 @@ export default function Contact() {
 									</div>
 								</li>
 								<li className="flex items-start gap-4 py-4 first:pt-0 last:pb-0">
-									<span
-										className="mt-0.5 text-neutral-400 dark:text-neutral-500"
-										aria-hidden
-									>
-										💼
-									</span>
+									<Phone
+										className="mt-0.5 h-5 w-5 flex-shrink-0 text-neutral-400 dark:text-neutral-500"
+										aria-hidden="true"
+									/>
 									<div>
 										<p className="text-xs font-medium uppercase tracking-[0.06em] text-neutral-500 dark:text-neutral-400">
-											Branża
+											Telefon
 										</p>
 										<p className="mt-1 text-sm font-normal text-neutral-900 dark:text-white">
-											Headhunting
+											+48 600 000 000
 										</p>
 									</div>
 								</li>
 								<li className="flex items-start gap-4 py-4 first:pt-0 last:pb-0">
-									<span
-										className="mt-0.5 text-neutral-400 dark:text-neutral-500"
-										aria-hidden
-									>
-										👥
-									</span>
+									<Mail
+										className="mt-0.5 h-5 w-5 flex-shrink-0 text-neutral-400 dark:text-neutral-500"
+										aria-hidden="true"
+									/>
 									<div>
 										<p className="text-xs font-medium uppercase tracking-[0.06em] text-neutral-500 dark:text-neutral-400">
-											Wielkość firmy
+											Email
 										</p>
 										<p className="mt-1 text-sm font-normal text-neutral-900 dark:text-white">
-											11–50 pracowników
+											kontakt@recrumates.pl
 										</p>
 									</div>
 								</li>
@@ -96,7 +98,7 @@ export default function Contact() {
 						</div>
 
 						{/* CTA card */}
-						<div className="rounded-xl border h-[275px] border-neutral-200/80 bg-neutral-50/80 p-6 dark:border-neutral-800/80 dark:bg-neutral-900/50">
+						<div className="rounded-xl border border-neutral-200/80 bg-neutral-50/80 p-6 dark:border-neutral-800/80 dark:bg-neutral-900/50">
 							<h4 className="mb-2 text-sm font-semibold uppercase tracking-[0.06em] text-neutral-900 dark:text-white flex items-start justify-start">
 								Gotowy na współpracę?
 							</h4>
@@ -119,6 +121,41 @@ export default function Contact() {
 									kontakt@recrumates.pl
 								</a>
 							</p>
+
+							<div className="mt-5 flex items-center gap-3">
+								<span className="text-xs font-medium uppercase tracking-[0.06em] text-neutral-500 dark:text-neutral-400">
+									Social media
+								</span>
+								<div className="flex items-center gap-3">
+									<a
+										href="https://www.linkedin.com/company/recrumates"
+										target="_blank"
+										rel="noreferrer"
+										aria-label="LinkedIn"
+										className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-neutral-600/60 bg-neutral-900/60 text-neutral-200 transition-colors hover:border-teal-500 hover:text-teal-400"
+									>
+										<Linkedin className="h-4 w-4" aria-hidden="true" />
+									</a>
+									<a
+										href="https://www.instagram.com"
+										target="_blank"
+										rel="noreferrer"
+										aria-label="Instagram"
+										className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-neutral-600/60 bg-neutral-900/60 text-neutral-200 transition-colors hover:border-teal-500 hover:text-teal-400"
+									>
+										<Instagram className="h-4 w-4" aria-hidden="true" />
+									</a>
+									<a
+										href="https://www.facebook.com"
+										target="_blank"
+										rel="noreferrer"
+										aria-label="Facebook"
+										className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-neutral-600/60 bg-neutral-900/60 text-neutral-200 transition-colors hover:border-teal-500 hover:text-teal-400"
+									>
+										<Facebook className="h-4 w-4" aria-hidden="true" />
+									</a>
+								</div>
+							</div>
 						</div>
 					</div>
 

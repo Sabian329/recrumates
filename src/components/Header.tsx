@@ -1,4 +1,6 @@
 import { useState } from "react";
+import logoSign from "../assets/LOGO+SIGN.svg";
+import logoSignMobile from "../assets/BASELOGO.svg";
 
 export default function Header() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,17 +20,21 @@ export default function Header() {
 			<nav className="container mx-auto px-4 py-3 md:py-4">
 				<div className="flex items-center justify-between">
 					{/* Logo */}
-					<a href="#home" className="flex items-center gap-2.5">
-						<div className="w-10 h-10 rounded-xl bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center border border-neutral-200/80 dark:border-neutral-700/80">
-							<span className="text-lg font-semibold tracking-tight">
-								<span className="text-neutral-800 dark:text-neutral-100">R</span>
-								<span className="text-teal-600 dark:text-teal-400">M</span>
-							</span>
-						</div>
-						<div className="hidden sm:block">
-							<div className="text-sm font-semibold tracking-tight text-neutral-900 dark:text-white">RECRUMATES</div>
-							<div className="text-xs font-medium uppercase tracking-[0.15em] text-neutral-500 dark:text-neutral-400">Recruitment Agency</div>
-						</div>
+					<a
+						href="#home"
+						className="flex items-center gap-2.5"
+						aria-label="RecruMates – strona główna"
+					>
+						<img
+							src={logoSignMobile}
+							alt="RecruMates"
+							className="h-14 w-auto object-contain md:hidden"
+						/>
+						<img
+							src={logoSign}
+							alt="RecruMates"
+							className="h-12 w-auto object-contain hidden md:block"
+						/>
 					</a>
 
 					<div className="flex items-center gap-4">
@@ -38,7 +44,7 @@ export default function Header() {
 								<li key={item.href}>
 									<a
 										href={item.href}
-										className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors font-medium"
+										className="text-xs lg:text-sm text-neutral-600  text-nowrap dark:text-neutral-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors font-medium"
 									>
 										{item.label}
 									</a>

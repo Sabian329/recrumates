@@ -1,4 +1,5 @@
-//import heroImage from "../assets/hero.png";
+import baseLogo from "../assets/BASELOGO.svg";
+import { CalendarDays, MapPin } from "lucide-react";
 
 interface JobOffer {
 	id: number;
@@ -10,17 +11,47 @@ interface JobOffer {
 }
 
 export default function JobOffers() {
-	// Przykładowe oferty - w rzeczywistości będą pobierane z API
 	const jobOffers: JobOffer[] = [
 		{
 			id: 1,
-			title: "Key Account Manager Observability &...",
+			title: "Key Account Manager Observability & Monitoring",
 			company: "RecruMates",
 			location: "Warszawa i okolice",
 			status: "Aktywne przeglądanie kandydatów",
 			posted: "4 dni temu",
 		},
-		// Można dodać więcej ofert
+		{
+			id: 2,
+			title: "Senior Account Executive SaaS",
+			company: "RecruMates dla Klienta z branży IT",
+			location: "Hybrid – Warszawa / remote",
+			status: "Etap rozmów z wybranymi kandydatami",
+			posted: "1 tydzień temu",
+		},
+		{
+			id: 3,
+			title: "Head of Sales (B2B)",
+			company: "Scale-up technologiczny",
+			location: "Wrocław / cała Polska",
+			status: "Nowa rekrutacja",
+			posted: "2 dni temu",
+		},
+		{
+			id: 4,
+			title: "Cyber Security Engineer",
+			company: "Międzynarodowa organizacja",
+			location: "Remote z Polski",
+			status: "Aktywne poszukiwanie kandydatów",
+			posted: "5 dni temu",
+		},
+		{
+			id: 5,
+			title: "HR Business Partner",
+			company: "Organizacja produkcyjno-technologiczna",
+			location: "Poznań i okolice",
+			status: "Rozmowy kwalifikacyjne w toku",
+			posted: "1 dzień temu",
+		},
 	];
 
 	return (
@@ -60,27 +91,24 @@ export default function JobOffers() {
 				{/* Job Offers List */}
 				<div className="mb-8">
 					<h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-6 tracking-tight">
-						Niedawno opublikowane oferty pracy
+						Opublikowane oferty pracy
 					</h3>
-					<div className="space-y-4">
+					<div className="space-y-4 max-h-[500px] overflow-y-auto custom-scrollbar">
 						{jobOffers.map((job) => (
 							<div
 								key={job.id}
-								className="rounded-xl border border-neutral-200/80 bg-neutral-50 p-6 transition-colors dark:border-neutral-800/80 dark:bg-neutral-900/50"
+								className="rounded-xl border border-neutral-200/80 bg-neutral-50 p-6 transition-colors dark:border-neutral-800/80 dark:bg-neutral-900/50 mr-2"
 							>
 								<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 									<div className="flex-1">
 										<div className="flex items-center gap-3 mb-2">
-											<div className="w-11 h-11 bg-neutral-100 dark:bg-neutral-800 border border-neutral-200/80 dark:border-neutral-700 flex items-center justify-center rounded-xl">
-												<span className="text-sm font-semibold tracking-tight">
-													<span className="text-neutral-800 dark:text-white">
-														R
-													</span>
-													<span className="text-teal-600 dark:text-teal-400">
-														M
-													</span>
-												</span>
-											</div>
+											<img
+												src={baseLogo}
+												alt=""
+												className="w-11 h-11  object-contain"
+												aria-hidden="true"
+											/>
+
 											<div>
 												<h4 className="text-lg font-semibold text-neutral-900 dark:text-white tracking-tight">
 													{job.title}
@@ -92,17 +120,18 @@ export default function JobOffers() {
 										</div>
 										<div className="flex flex-wrap items-center gap-4 mt-3 text-sm text-neutral-500 dark:text-neutral-400 font-normal">
 											<span className="flex items-center gap-1.5">
-												<span aria-label="Lokalizacja">📍</span> {job.location}
+												<MapPin className="h-4 w-4" aria-hidden="true" />
+												{job.location}
 											</span>
 											<span className="flex items-center gap-2 text-teal-600 dark:text-teal-400">
-												<span
-													className="w-1.5 h-1.5 bg-teal-500 rounded-full animate-pulse"
-													aria-label="Status aktywny"
-												></span>
+												<span className="w-1.5 h-1.5 bg-teal-500 rounded-full animate-pulse"></span>
 												{job.status}
 											</span>
 											<span>
-												<span aria-label="Data publikacji">📅</span>{" "}
+												<CalendarDays
+													className="mr-1 inline-block h-4 w-4 align-middle"
+													aria-hidden="true"
+												/>
 												{job.posted}
 											</span>
 										</div>
@@ -121,6 +150,7 @@ export default function JobOffers() {
 												strokeWidth="1.5"
 												viewBox="0 0 24 24"
 												stroke="currentColor"
+												aria-hidden="true"
 											>
 												<path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
 											</svg>
@@ -144,7 +174,7 @@ export default function JobOffers() {
 							href="#contact"
 							className="text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 font-medium text-sm inline-flex items-center gap-2 transition-colors"
 						>
-							Pokaż wszystkie oferty pracy →
+							Zapytaj o więcej ofert →
 						</a>
 					</div>
 				)}

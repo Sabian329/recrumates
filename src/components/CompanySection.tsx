@@ -12,13 +12,13 @@ export default function CompanySection() {
 	return (
 		<section
 			id="company"
-			className="py-24 px-4 bg-neutral-950 text-neutral-100 overflow-hidden"
+			className="py-16 md:py-24 px-4 bg-neutral-950 text-neutral-100 overflow-hidden"
 		>
 			<div className="container mx-auto max-w-6xl">
-				<div className="grid md:grid-cols-2 gap-14 lg:gap-20 items-center">
-					{/* CEO Photo + decorative image */}
-					<div className="relative order-2 md:order-1 space-y-6 flex justify-end">
-						<div className="relative aspect-[4/5] max-h-[520px] rounded-xl overflow-hidden border border-neutral-800/80">
+				<div className="grid md:grid-cols-2 gap-10 md:gap-14 lg:gap-20 items-center">
+					{/* CEO Photo */}
+					<div className="relative order-2 md:order-1 mt-10 md:mt-0 flex justify-center md:justify-end">
+						<div className="relative w-full max-w-xs sm:max-w-sm aspect-[4/5] rounded-xl overflow-hidden border border-neutral-800/80">
 							<img
 								src={ceoImage}
 								alt="CEO RecruMates"

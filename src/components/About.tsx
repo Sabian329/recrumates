@@ -1,4 +1,9 @@
-//import heroImage from "../assets/hero.png";
+import {
+	Cpu,
+	Sparkles,
+	Globe2,
+	HeartHandshake,
+} from "lucide-react";
 
 export default function About() {
 	const values = [
@@ -6,25 +11,25 @@ export default function About() {
 			title: "Nowoczesne podejście dzięki AI",
 			description:
 				"Wykorzystujemy narzędzia AI do szybszych i bardziej efektywnych działań, nie tracąc z oczu ludzkiego elementu. Technologia wspiera, ale to relacje budują sukces.",
-			icon: "🤖",
+			Icon: Cpu,
 		},
 		{
 			title: "Autentyczność i luz",
 			description:
 				"Bez korporacyjnych masek - jesteśmy sobą, na luzie tak często, jak to możliwe. Współpraca jest transparentna, konkretna i szczera.",
-			icon: "✨",
+			Icon: Sparkles,
 		},
 		{
 			title: "Międzynarodowy zasięg",
 			description:
 				"Niezależnie od tego, czy szukasz talentów w Polsce, czy na całym świecie - wytrwałość to klucz do sukcesu.",
-			icon: "🌍",
+			Icon: Globe2,
 		},
 		{
 			title: "Ludzie na pierwszym miejscu",
 			description:
 				"Każda aplikacja jest widziana z jej historią, pasją i przyszłością. Chcemy, aby każdy proces rekrutacyjny czuł się jak kawa, a nie stresujący 'egzamin'.",
-			icon: "❤️",
+			Icon: HeartHandshake,
 		},
 	];
 
@@ -50,17 +55,19 @@ export default function About() {
 						Co nas wyróżnia?
 					</h3>
 					<div className="grid md:grid-cols-2 gap-6">
-						{values.map((value) => (
+						{values.map(({ title, description, Icon }) => (
 							<div
-								key={value.title}
+								key={title}
 								className="bg-neutral-50 dark:bg-neutral-950/60 p-8 rounded-xl border border-neutral-200/80 dark:border-neutral-800/80 transition-colors"
 							>
-								<div className="text-3xl mb-4">{value.icon}</div>
+								<div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-teal-500/30 bg-teal-500/10 text-teal-500 dark:border-teal-400/30 dark:bg-teal-400/10">
+									<Icon className="h-5 w-5" aria-hidden="true" />
+								</div>
 								<h4 className="text-lg font-semibold tracking-tight text-neutral-900 dark:text-white mb-2">
-									{value.title}
+									{title}
 								</h4>
 								<p className="text-sm font-normal leading-relaxed text-neutral-600 dark:text-neutral-400">
-									{value.description}
+									{description}
 								</p>
 							</div>
 						))}

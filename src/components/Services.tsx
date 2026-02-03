@@ -1,27 +1,32 @@
-//import hero1 from "../assets/hero1.png";
+import {
+	BriefcaseBusiness,
+	Handshake,
+	Search,
+	Target,
+} from "lucide-react";
 
 export default function Services() {
 	const services = [
 		{
-			icon: "🔍",
+			Icon: Search,
 			title: "Rekrutacja end-to-end",
 			description:
 				"Kompleksowa obsługa procesu rekrutacyjnego od początku do końca.",
 		},
 		{
-			icon: "🤝",
+			Icon: Handshake,
 			title: "Specjalizacja w wielu obszarach",
 			description:
 				"Specjalizujemy się w rolach handlowych, IT, inżynierskich, CyberSec i managerskich.",
 		},
 		{
-			icon: "💼",
+			Icon: BriefcaseBusiness,
 			title: "Doradztwo HR i employer branding",
 			description:
 				"Pomagamy budować markę pracodawcy i optymalizować procesy HR.",
 		},
 		{
-			icon: "🎯",
+			Icon: Target,
 			title: "Elastyczne modele rozliczeń",
 			description:
 				"Success Fee od 8% rocznego wynagrodzenia, opcjonalnie fix price lub RPO.",
@@ -50,17 +55,19 @@ export default function Services() {
 				</div>
 
 				<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
-					{services.map((service) => (
+					{services.map(({ Icon, title, description }) => (
 						<div
-							key={service.title}
+							key={title}
 							className="bg-white dark:bg-neutral-950/80 p-6 rounded-xl border border-neutral-200/80 dark:border-neutral-800/80 transition-colors"
 						>
-							<div className="text-3xl mb-4">{service.icon}</div>
+							<div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-teal-500/30 bg-teal-500/10 text-teal-500 dark:border-teal-400/30 dark:bg-teal-400/10">
+								<Icon className="h-5 w-5" aria-hidden="true" />
+							</div>
 							<h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-2 tracking-tight">
-								{service.title}
+								{title}
 							</h3>
 							<p className="text-neutral-600 dark:text-neutral-400 text-sm font-normal leading-relaxed">
-								{service.description}
+								{description}
 							</p>
 						</div>
 					))}

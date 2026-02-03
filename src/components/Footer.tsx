@@ -1,3 +1,5 @@
+import baseLogo from "../assets/LOGO+SIGN.svg";
+
 export default function Footer() {
 	return (
 		<footer className="bg-neutral-950 text-neutral-300 py-14 px-4">
@@ -6,16 +8,17 @@ export default function Footer() {
 					{/* Logo & About */}
 					<div>
 						<div className="flex items-center gap-2.5 mb-4">
-							<div className="w-10 h-10 rounded-xl bg-neutral-800 border border-neutral-700/80 flex items-center justify-center">
-								<span className="text-lg font-semibold tracking-tight">
-									<span className="text-white">R</span>
-									<span className="text-teal-400">M</span>
+							<a href="#home" aria-label="RecruMates – strona główna">
+								<span>
+									<img
+										src={baseLogo}
+										alt="RecruMates"
+										className="w-full h-12 object-contain"
+										aria-hidden="true"
+										aria-label="RecruMates – strona główna"
+									/>
 								</span>
-							</div>
-							<div>
-								<div className="text-sm font-semibold tracking-tight text-white">RECRUMATES</div>
-								<div className="text-xs font-medium uppercase tracking-[0.15em] text-neutral-500">Recruitment Agency</div>
-							</div>
+							</a>
 						</div>
 						<p className="text-neutral-500 text-sm font-normal leading-relaxed">
 							Tworzymy jakościową i przyjazną rekrutację, na luzie :)
@@ -24,25 +27,39 @@ export default function Footer() {
 
 					{/* Quick Links */}
 					<div>
-						<h4 className="font-semibold text-white text-sm mb-4 tracking-tight">Szybkie linki</h4>
+						<h4 className="font-semibold text-white text-sm mb-4 tracking-tight">
+							Szybkie linki
+						</h4>
 						<ul className="space-y-2.5 text-sm font-normal">
 							<li>
-								<a href="#home" className="text-neutral-500 hover:text-teal-400 transition-colors">
+								<a
+									href="#home"
+									className="text-neutral-500 hover:text-teal-400 transition-colors"
+								>
 									Główna
 								</a>
 							</li>
 							<li>
-								<a href="#about" className="text-neutral-500 hover:text-teal-400 transition-colors">
+								<a
+									href="#about"
+									className="text-neutral-500 hover:text-teal-400 transition-colors"
+								>
 									O nas
 								</a>
 							</li>
 							<li>
-								<a href="#services" className="text-neutral-500 hover:text-teal-400 transition-colors">
+								<a
+									href="#services"
+									className="text-neutral-500 hover:text-teal-400 transition-colors"
+								>
 									Usługi
 								</a>
 							</li>
 							<li>
-								<a href="#jobs" className="text-neutral-500 hover:text-teal-400 transition-colors">
+								<a
+									href="#jobs"
+									className="text-neutral-500 hover:text-teal-400 transition-colors"
+								>
 									Oferty pracy
 								</a>
 							</li>
@@ -51,7 +68,9 @@ export default function Footer() {
 
 					{/* Services */}
 					<div>
-						<h4 className="font-semibold text-white text-sm mb-4 tracking-tight">Usługi</h4>
+						<h4 className="font-semibold text-white text-sm mb-4 tracking-tight">
+							Usługi
+						</h4>
 						<ul className="space-y-2.5 text-sm text-neutral-500 font-normal">
 							<li>Rekrutacja end-to-end</li>
 							<li>Doradztwo HR</li>
@@ -62,12 +81,17 @@ export default function Footer() {
 
 					{/* Contact */}
 					<div>
-						<h4 className="font-semibold text-white text-sm mb-4 tracking-tight">Kontakt</h4>
+						<h4 className="font-semibold text-white text-sm mb-4 tracking-tight">
+							Kontakt
+						</h4>
 						<ul className="space-y-2.5 text-sm text-neutral-500 font-normal">
 							<li>Wrocław, Dolnośląskie</li>
 							<li>Polska</li>
 							<li>
-								<a href="mailto:kontakt@recrumates.pl" className="hover:text-teal-400 transition-colors">
+								<a
+									href="mailto:kontakt@recrumates.pl"
+									className="hover:text-teal-400 transition-colors"
+								>
 									kontakt@recrumates.pl
 								</a>
 							</li>
@@ -87,7 +111,8 @@ export default function Footer() {
 							<span>#Łączymy</span>
 						</div>
 						<p className="text-neutral-500 text-sm font-normal">
-							© {new Date().getFullYear()} RecruMates. Wszystkie prawa zastrzeżone.
+							© {new Date().getFullYear()} RecruMates. Wszystkie prawa
+							zastrzeżone.
 						</p>
 					</div>
 				</div>

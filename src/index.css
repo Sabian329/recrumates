@@ -33,3 +33,26 @@
 .accent-border {
 	@apply border-teal-200 dark:border-teal-800;
 }
+
+/* Custom scrollbar for job offers list */
+.custom-scrollbar {
+	scrollbar-width: thin;
+	scrollbar-color: #bebebe1a #1a1a1b;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+	width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, 0.4); /* slate-400/40 */
+	border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+	background: rgba(45, 212, 191, 0.7); /* teal-400/70 */
+}
