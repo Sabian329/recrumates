@@ -42,7 +42,7 @@ export default function Hero() {
 					</h1>
 
 					<div
-						className="mx-auto mb-4 h-px w-10 bg-teal-500/80 md:mb-6 md:w-12"
+						className="mx-auto mb-4 h-px w-10 bg-accent-500/80 md:mb-6 md:w-12"
 						aria-hidden
 					/>
 
@@ -55,7 +55,7 @@ export default function Hero() {
 					<div className="mt-6 hidden flex-row flex-wrap items-center justify-center gap-3 sm:flex">
 						<a
 							href="#contact"
-							className="inline-flex min-w-[180px] items-center justify-center rounded-lg border border-teal-500/50 bg-teal-600 px-8 py-3.5 text-sm font-medium text-white transition-colors hover:bg-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:ring-offset-2 focus:ring-offset-neutral-950"
+							className="inline-flex min-w-[180px] items-center justify-center rounded-lg border border-accent-500/50 bg-accent-600 px-8 py-3.5 text-sm font-medium text-white transition-colors hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:ring-offset-2 focus:ring-offset-neutral-950"
 						>
 							Zamów usługi
 						</a>
@@ -75,7 +75,7 @@ export default function Hero() {
 					<div className="mx-auto flex w-full flex-row items-stretch justify-between gap-4">
 						<a
 							href="#contact"
-							className="flex-1 min-w-0 rounded-xl border border-teal-500/50 bg-teal-600 py-3 text-center text-xs font-medium text-white transition-colors active:bg-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:ring-offset-2 focus:ring-offset-neutral-950"
+							className="flex-1 min-w-0 rounded-xl border border-accent-500/50 bg-accent-600 py-3 text-center text-xs font-medium text-white transition-colors active:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:ring-offset-2 focus:ring-offset-neutral-950"
 						>
 							Zamów usługi
 						</a>

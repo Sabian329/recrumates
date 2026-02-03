@@ -34,7 +34,7 @@ export default function Footer() {
 							<li>
 								<a
 									href="#home"
-									className="text-neutral-500 hover:text-teal-400 transition-colors"
+									className="text-neutral-500 hover:text-accent-400 transition-colors"
 								>
 									Główna
 								</a>
@@ -42,7 +42,7 @@ export default function Footer() {
 							<li>
 								<a
 									href="#about"
-									className="text-neutral-500 hover:text-teal-400 transition-colors"
+									className="text-neutral-500 hover:text-accent-400 transition-colors"
 								>
 									O nas
 								</a>
@@ -50,7 +50,7 @@ export default function Footer() {
 							<li>
 								<a
 									href="#team"
-									className="text-neutral-500 hover:text-teal-400 transition-colors"
+									className="text-neutral-500 hover:text-accent-400 transition-colors"
 								>
 									Zespół
 								</a>
@@ -58,7 +58,7 @@ export default function Footer() {
 							<li>
 								<a
 									href="#services"
-									className="text-neutral-500 hover:text-teal-400 transition-colors"
+									className="text-neutral-500 hover:text-accent-400 transition-colors"
 								>
 									Usługi
 								</a>
@@ -66,7 +66,7 @@ export default function Footer() {
 							<li>
 								<a
 									href="#jobs"
-									className="text-neutral-500 hover:text-teal-400 transition-colors"
+									className="text-neutral-500 hover:text-accent-400 transition-colors"
 								>
 									Oferty pracy
 								</a>
@@ -98,7 +98,7 @@ export default function Footer() {
 							<li>
 								<a
 									href="mailto:kontakt@recrumates.pl"
-									className="hover:text-teal-400 transition-colors"
+									className="hover:text-accent-400 transition-colors"
 								>
 									kontakt@recrumates.pl
 								</a>

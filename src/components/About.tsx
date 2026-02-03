@@ -1,9 +1,4 @@
-import {
-	Cpu,
-	Sparkles,
-	Globe2,
-	HeartHandshake,
-} from "lucide-react";
+import { Cpu, Sparkles, Globe2, HeartHandshake } from "lucide-react";
 
 export default function About() {
 	const values = [
@@ -43,7 +38,10 @@ export default function About() {
 					<h2 className="mb-2 text-3xl font-semibold tracking-tight text-neutral-900 dark:text-white md:text-4xl md:tracking-widest">
 						O nas
 					</h2>
-					<div className="mx-auto mb-6 h-px w-12 bg-teal-500/80" aria-hidden />
+					<div
+						className="mx-auto mb-6 h-px w-12 bg-accent-500/80"
+						aria-hidden
+					/>
 					<p className="mx-auto max-w-2xl text-lg font-thin leading-relaxed text-neutral-600 dark:text-neutral-400 md:text-xl">
 						RecruMates to więcej niż agencja rekrutacyjna — to przestrzeń, gdzie
 						technologia spotyka się z autentycznym, ludzkim podejściem.
@@ -60,7 +58,7 @@ export default function About() {
 								key={title}
 								className="bg-neutral-50 dark:bg-neutral-950/60 p-8 rounded-xl border border-neutral-200/80 dark:border-neutral-800/80 transition-colors"
 							>
-								<div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-teal-500/30 bg-teal-500/10 text-teal-500 dark:border-teal-400/30 dark:bg-teal-400/10">
+								<div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-accent-500/30 bg-accent-500/10 text-accent-500 dark:border-accent-400/30 dark:bg-accent-400/10">
 									<Icon className="h-5 w-5" aria-hidden="true" />
 								</div>
 								<h4 className="text-lg font-semibold tracking-tight text-neutral-900 dark:text-white mb-2">
@@ -83,7 +81,7 @@ export default function About() {
 						umysły i technologię, aby pomagać firmom rosnąć, a kandydatom
 						znaleźć miejsce, gdzie mogą być sobą.
 					</p>
-					<p className="text-lg font-medium text-teal-600 dark:text-teal-400">
+					<p className="text-lg font-medium text-accent-600 dark:text-accent-400">
 						RecruMates. Tworzymy jakościową i przyjazną rekrutację, na luzie :)
 					</p>
 				</div>

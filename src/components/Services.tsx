@@ -41,7 +41,10 @@ export default function Services() {
 					<h2 className="mb-2 text-3xl font-semibold tracking-tight text-neutral-900 dark:text-white md:text-4xl md:tracking-widest">
 						Usługi
 					</h2>
-					<div className="mx-auto mb-6 h-px w-12 bg-teal-500/80" aria-hidden />
+					<div
+						className="mx-auto mb-6 h-px w-12 bg-accent-500/80"
+						aria-hidden
+					/>
 					<p className="mx-auto max-w-2xl text-lg font-thin leading-relaxed text-neutral-600 dark:text-neutral-400 md:text-xl">
 						RecruMates to agencja rekrutacyjna znana z przyjaznego podejścia do
 						rozmówców — profesjonalizm i empatia połączone ze zrozumieniem wielu
@@ -55,7 +58,7 @@ export default function Services() {
 							key={title}
 							className="bg-white dark:bg-neutral-950/80 shadow-lg p-6 rounded-xl border border-neutral-200/80 dark:border-neutral-800/80 transition-colors"
 						>
-							<div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-teal-500/30 bg-teal-500/10 text-teal-500 dark:border-teal-400/30 dark:bg-teal-400/10">
+							<div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-accent-500/30 bg-accent-500/10 text-accent-500 dark:border-accent-400/30 dark:bg-accent-400/10">
 								<Icon className="h-5 w-5" aria-hidden="true" />
 							</div>
 							<h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-2 tracking-tight">
@@ -74,19 +77,19 @@ export default function Services() {
 					</h3>
 					<ul className="mx-auto max-w-xl space-y-4">
 						<li className="flex items-start gap-3">
-							<span className="text-teal-500 mt-0.5 shrink-0">✓</span>
+							<span className="text-accent-500 mt-0.5 shrink-0">✓</span>
 							<span className="font-normal text-neutral-600 dark:text-neutral-400">
 								Znaleźć najlepsze talenty na rynku — szybko i efektywnie
 							</span>
 						</li>
 						<li className="flex items-start gap-3">
-							<span className="text-teal-500 mt-0.5 shrink-0">✓</span>
+							<span className="text-accent-500 mt-0.5 shrink-0">✓</span>
 							<span className="font-normal text-neutral-600 dark:text-neutral-400">
 								Doradzić, jak ulepszyć procesy rekrutacyjne
 							</span>
 						</li>
 						<li className="flex items-start gap-3">
-							<span className="text-teal-500 mt-0.5 shrink-0">✓</span>
+							<span className="text-accent-500 mt-0.5 shrink-0">✓</span>
 							<span className="font-normal text-neutral-600 dark:text-neutral-400">
 								Wspierać Twoją firmę w budowaniu przyszłościowych zespołów
 							</span>
@@ -95,7 +98,7 @@ export default function Services() {
 					<div className="mt-8 text-center">
 						<a
 							href="#contact"
-							className="inline-flex items-center justify-center rounded-lg border border-teal-500/50 bg-teal-600 px-8 py-3.5 text-sm font-medium text-white transition-colors hover:bg-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950"
+							className="inline-flex items-center justify-center rounded-lg border border-accent-500/50 bg-accent-600 px-8 py-3.5 text-sm font-medium text-white transition-colors hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950"
 						>
 							Zamów usługi
 						</a>

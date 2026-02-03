@@ -59,7 +59,10 @@ export default function Team() {
 					<h2 className="mb-2 text-3xl font-semibold tracking-tight text-white md:text-4xl md:tracking-widest">
 						Nasz zespół
 					</h2>
-					<div className="mx-auto mb-6 h-px w-12 bg-teal-500/80" aria-hidden />
+					<div
+						className="mx-auto mb-6 h-px w-12 bg-accent-500/80"
+						aria-hidden
+					/>
 					<p className="mx-auto max-w-2xl text-lg font-thin leading-relaxed text-neutral-400 md:text-xl">
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
 						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -83,7 +86,7 @@ export default function Team() {
 							<h3 className="text-lg font-semibold tracking-tight text-white mb-1">
 								{member.name}
 							</h3>
-							<p className="text-sm font-medium text-teal-400/90 mb-0.5">
+							<p className="text-sm font-medium text-accent-400/90 mb-0.5">
 								{member.role}
 							</p>
 							<p className="text-sm text-neutral-500 font-normal">

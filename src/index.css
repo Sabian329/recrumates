@@ -25,13 +25,13 @@
 
 /* Design system: jeden akcent, minimalne cienie */
 .accent {
-	@apply text-teal-600 dark:text-teal-400;
+	@apply text-accent-600 dark:text-accent-400;
 }
 .accent-bg {
-	@apply bg-teal-600 dark:bg-teal-500 text-white hover:bg-teal-700 dark:hover:bg-teal-600;
+	@apply bg-accent-600 dark:bg-accent-500 text-white hover:bg-accent-700 dark:hover:bg-accent-600;
 }
 .accent-border {
-	@apply border-teal-200 dark:border-teal-800;
+	@apply border-accent-200 dark:border-accent-800;
 }
 
 /* Custom scrollbar for job offers list */
@@ -54,5 +54,5 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-	background: rgba(45, 212, 191, 0.7); /* teal-400/70 */
+	background: rgba(45, 212, 191, 0.7); /* accent-400/70 (change here manually if accent changes) */
 }

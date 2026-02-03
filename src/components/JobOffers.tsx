@@ -65,7 +65,7 @@ export default function JobOffers() {
 						Oferty pracy
 					</h2>
 					<div
-						className="mx-auto mb-6 mt-3 h-px w-12 bg-teal-500/80"
+						className="mx-auto mb-6 mt-3 h-px w-12 bg-accent-500/80"
 						aria-hidden
 					/>
 					<p className="mx-auto max-w-xl text-lg font-thin text-neutral-600 dark:text-neutral-400 md:text-lg">
@@ -80,11 +80,11 @@ export default function JobOffers() {
 						<input
 							type="text"
 							placeholder="Stanowisko lub słowo kluczowe"
-							className="flex-1 rounded-lg border border-neutral-200 bg-white px-5 py-3.5 font-normal text-neutral-900 placeholder:text-neutral-400 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/30 dark:border-neutral-700 dark:bg-neutral-900/80 dark:text-white dark:placeholder:text-neutral-500"
+							className="flex-1 rounded-lg border border-neutral-200 bg-white px-5 py-3.5 font-normal text-neutral-900 placeholder:text-neutral-400 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30 dark:border-neutral-700 dark:bg-neutral-900/80 dark:text-white dark:placeholder:text-neutral-500"
 						/>
 						<button
 							type="button"
-							className="rounded-lg border border-teal-500/50 bg-teal-600 px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950"
+							className="rounded-lg border border-accent-500/50 bg-accent-600 px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950"
 						>
 							Szukaj
 						</button>
@@ -96,7 +96,7 @@ export default function JobOffers() {
 					<h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-6 tracking-tight">
 						Opublikowane oferty pracy
 					</h3>
-					<div className="space-y-4 max-h-[500px] bg-black overflow-y-auto custom-scrollbar">
+					<div className="space-y-4 max-h-[500px]  overflow-y-auto custom-scrollbar">
 						{jobOffers.map((job) => (
 							<div
 								key={job.id}
@@ -126,8 +126,8 @@ export default function JobOffers() {
 												<MapPin className="h-4 w-4" aria-hidden="true" />
 												{job.location}
 											</span>
-											<span className="flex items-center gap-2 text-teal-600 dark:text-teal-400">
-												<span className="w-1.5 h-1.5 bg-teal-500 rounded-full animate-pulse"></span>
+											<span className="flex items-center gap-2 text-accent-600 dark:text-accent-400">
+												<span className="w-1.5 h-1.5 bg-accent-500 rounded-full animate-pulse"></span>
 												{job.status}
 											</span>
 											<span>
@@ -142,7 +142,7 @@ export default function JobOffers() {
 									<div className="flex items-center gap-3">
 										<a
 											href="#contact"
-											className="whitespace-nowrap rounded-lg border border-teal-500/50 bg-teal-600 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950"
+											className="whitespace-nowrap rounded-lg border border-accent-500/50 bg-accent-600 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950"
 										>
 											Aplikuj
 										</a>
@@ -157,7 +157,7 @@ export default function JobOffers() {
 					<div className="text-center">
 						<a
 							href="#contact"
-							className="text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 font-medium text-sm inline-flex items-center gap-2 transition-colors"
+							className="text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 font-medium text-sm inline-flex items-center gap-2 transition-colors"
 						>
 							Zapytaj o więcej ofert →
 						</a>

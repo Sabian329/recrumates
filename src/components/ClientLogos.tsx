@@ -47,7 +47,10 @@ export default function ClientLogos() {
 					<h2 className="mb-2 text-3xl font-semibold tracking-tight text-neutral-900 dark:text-white md:text-4xl md:tracking-widest">
 						Zaufali nam
 					</h2>
-					<div className="mx-auto mb-6 h-px w-12 bg-teal-500/80" aria-hidden />
+					<div
+						className="mx-auto mb-6 h-px w-12 bg-accent-500/80"
+						aria-hidden
+					/>
 					<p className="mx-auto max-w-xl text-lg font-thin text-neutral-600 dark:text-neutral-400 md:text-xl">
 						Firmy, z którymi nawiązaliśmy współpracę rekrutacyjną
 					</p>

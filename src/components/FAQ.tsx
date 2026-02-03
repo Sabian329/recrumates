@@ -51,7 +51,10 @@ export default function FAQ() {
 					<h2 className="mb-2 text-3xl font-semibold tracking-tight text-neutral-900 dark:text-white md:text-4xl md:tracking-widest">
 						Często zadawane pytania
 					</h2>
-					<div className="mx-auto mb-6 h-px w-12 bg-teal-500/80" aria-hidden />
+					<div
+						className="mx-auto mb-6 h-px w-12 bg-accent-500/80"
+						aria-hidden
+					/>
 					<p className="text-lg font-thin text-neutral-600 dark:text-neutral-400 md:text-xl">
 						Odpowiedzi na najczęściej zadawane pytania
 					</p>
@@ -72,7 +75,7 @@ export default function FAQ() {
 									{faq.question}
 								</span>
 								<svg
-									className={`w-5 h-5 text-teal-500 transition-transform flex-shrink-0 ${
+									className={`w-5 h-5 text-accent-500 transition-transform flex-shrink-0 ${
 										openIndex === index ? "rotate-180" : ""
 									}`}
 									fill="none"

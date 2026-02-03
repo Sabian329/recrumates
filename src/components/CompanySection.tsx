@@ -34,7 +34,7 @@ export default function CompanySection() {
 						<h2 className="mb-2 text-3xl font-semibold tracking-tight text-white md:text-4xl md:tracking-widest">
 							Kim jesteśmy
 						</h2>
-						<div className="mb-6 h-px w-12 bg-teal-500/80" aria-hidden />
+						<div className="mb-6 h-px w-12 bg-accent-500/80" aria-hidden />
 						<p className="text-lg font-thin text-neutral-200 mb-6 leading-relaxed md:text-xl">
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
 							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -57,7 +57,7 @@ export default function CompanySection() {
 									key={trait.slice(0, 24)}
 									className="flex items-start gap-3 text-neutral-400 font-normal"
 								>
-									<span className="text-teal-500 mt-0.5 shrink-0">✓</span>
+									<span className="text-accent-500 mt-0.5 shrink-0">✓</span>
 									<span>{trait}</span>
 								</li>
 							))}

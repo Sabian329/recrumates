@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 const inputBase =
-	"w-full rounded-lg border border-neutral-200 bg-white px-4 py-3 text-sm font-normal text-neutral-900 placeholder:text-neutral-400 transition-shadow focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/30 dark:border-neutral-700 dark:bg-neutral-950/80 dark:text-white dark:placeholder:text-neutral-500";
+	"w-full rounded-lg border border-neutral-200 bg-white px-4 py-3 text-sm font-normal text-neutral-900 placeholder:text-neutral-400 transition-shadow focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30 dark:border-neutral-700 dark:bg-neutral-950/80 dark:text-white dark:placeholder:text-neutral-500";
 
 export default function Contact() {
 	return (
@@ -35,7 +35,10 @@ export default function Contact() {
 					<h2 className="mb-2 text-3xl font-semibold tracking-tight text-neutral-900 dark:text-white md:text-4xl md:tracking-widest">
 						Kontakt
 					</h2>
-					<div className="mx-auto mb-6 h-px w-12 bg-teal-500/80" aria-hidden />
+					<div
+						className="mx-auto mb-6 h-px w-12 bg-accent-500/80"
+						aria-hidden
+					/>
 					<p className="mx-auto max-w-xl text-lg font-thin leading-relaxed text-neutral-600 dark:text-neutral-400 md:text-xl">
 						Skontaktuj się z nami i dowiedz się, jak możemy pomóc
 					</p>
@@ -108,7 +111,7 @@ export default function Contact() {
 							</p>
 							<a
 								href="mailto:kontakt@recrumates.pl"
-								className="inline-flex min-w-[180px] items-center justify-center rounded-lg border border-teal-500/50 bg-teal-600 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950"
+								className="inline-flex min-w-[180px] items-center justify-center rounded-lg border border-accent-500/50 bg-accent-600 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950"
 							>
 								Wyślij e-mail
 							</a>
@@ -116,7 +119,7 @@ export default function Contact() {
 								lub napisz na{" "}
 								<a
 									href="mailto:kontakt@recrumates.pl"
-									className="text-teal-600 underline decoration-teal-500/30 underline-offset-2 hover:decoration-teal-500 dark:text-teal-400"
+									className="text-accent-600 underline decoration-accent-500/30 underline-offset-2 hover:decoration-accent-500 dark:text-accent-400"
 								>
 									kontakt@recrumates.pl
 								</a>
@@ -132,7 +135,7 @@ export default function Contact() {
 										target="_blank"
 										rel="noreferrer"
 										aria-label="LinkedIn"
-										className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-neutral-600/60 bg-neutral-900/60 text-neutral-200 transition-colors hover:border-teal-500 hover:text-teal-400"
+										className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-neutral-600/60 bg-neutral-900/60 text-neutral-200 transition-colors hover:border-accent-500 hover:text-accent-400"
 									>
 										<Linkedin className="h-4 w-4" aria-hidden="true" />
 									</a>
@@ -141,7 +144,7 @@ export default function Contact() {
 										target="_blank"
 										rel="noreferrer"
 										aria-label="Instagram"
-										className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-neutral-600/60 bg-neutral-900/60 text-neutral-200 transition-colors hover:border-teal-500 hover:text-teal-400"
+										className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-neutral-600/60 bg-neutral-900/60 text-neutral-200 transition-colors hover:border-accent-500 hover:text-accent-400"
 									>
 										<Instagram className="h-4 w-4" aria-hidden="true" />
 									</a>
@@ -150,7 +153,7 @@ export default function Contact() {
 										target="_blank"
 										rel="noreferrer"
 										aria-label="Facebook"
-										className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-neutral-600/60 bg-neutral-900/60 text-neutral-200 transition-colors hover:border-teal-500 hover:text-teal-400"
+										className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-neutral-600/60 bg-neutral-900/60 text-neutral-200 transition-colors hover:border-accent-500 hover:text-accent-400"
 									>
 										<Facebook className="h-4 w-4" aria-hidden="true" />
 									</a>
@@ -233,7 +236,7 @@ export default function Contact() {
 							</div>
 							<button
 								type="submit"
-								className="w-full rounded-lg border border-teal-500/50 bg-teal-600 px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950"
+								className="w-full rounded-lg border border-accent-500/50 bg-accent-600 px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950"
 							>
 								Wyślij wiadomość
 							</button>

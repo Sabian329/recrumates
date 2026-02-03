@@ -41,7 +41,7 @@ export default function Header() {
 								<li key={item.href}>
 									<a
 										href={item.href}
-										className="text-xs lg:text-sm text-neutral-600  text-nowrap dark:text-neutral-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors font-medium"
+										className="text-xs lg:text-sm text-neutral-600  text-nowrap dark:text-neutral-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors font-medium"
 									>
 										{item.label}
 									</a>
@@ -85,7 +85,7 @@ export default function Header() {
 								<a
 									href={item.href}
 									onClick={() => setIsMenuOpen(false)}
-									className="block py-2.5 text-neutral-600 dark:text-neutral-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors font-medium"
+									className="block py-2.5 text-neutral-600 dark:text-neutral-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors font-medium"
 								>
 									{item.label}
 								</a>
