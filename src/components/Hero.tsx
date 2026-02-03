@@ -70,7 +70,7 @@ export default function Hero() {
 			</div>
 
 			{/* Pasek CTA – tylko mobile, na dole ekranu */}
-			<div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col sm:hidden w-full h-fit">
+			{/* <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col sm:hidden w-full h-fit">
 				<div className="px-4 py-4 w-full">
 					<div className="mx-auto flex w-full flex-row items-stretch justify-between gap-4">
 						<a
@@ -87,7 +87,7 @@ export default function Hero() {
 						</a>
 					</div>
 				</div>
-			</div>
+			</div> */}
 		</section>
 	);
 }

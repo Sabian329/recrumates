@@ -22,7 +22,6 @@ function App() {
 				<Team />
 				<CompanyStory />
 				<Services />
-
 				<JobOffers />
 				<FAQ />
 				<ClientLogos />
