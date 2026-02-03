@@ -16,6 +16,7 @@ type AnimatedSectionProps = React.ComponentProps<typeof motion.section>;
 export default function AnimatedSection({
 	children,
 	className,
+	// @ts-ignore
 	transition = defaultTransition,
 	viewport = defaultViewport,
 	...props
