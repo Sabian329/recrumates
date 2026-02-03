@@ -49,6 +49,14 @@ export default function Footer() {
 							</li>
 							<li>
 								<a
+									href="#team"
+									className="text-neutral-500 hover:text-teal-400 transition-colors"
+								>
+									Zespół
+								</a>
+							</li>
+							<li>
+								<a
 									href="#services"
 									className="text-neutral-500 hover:text-teal-400 transition-colors"
 								>

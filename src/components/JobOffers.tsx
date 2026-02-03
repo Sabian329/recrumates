@@ -64,15 +64,18 @@ export default function JobOffers() {
 					<h2 className="mb-2 text-3xl font-semibold tracking-tight text-neutral-900 dark:text-white md:text-4xl md:tracking-widest">
 						Oferty pracy
 					</h2>
-					<div className="mx-auto mb-6 h-px w-12 bg-teal-500/80" aria-hidden />
-					<p className="mx-auto max-w-xl text-lg font-thin text-neutral-600 dark:text-neutral-400 md:text-xl">
-						RecruMates ma {jobOffers.length} otwartą ofertę pracy — znajdź
+					<div
+						className="mx-auto mb-6 mt-3 h-px w-12 bg-teal-500/80"
+						aria-hidden
+					/>
+					<p className="mx-auto max-w-xl text-lg font-thin text-neutral-600 dark:text-neutral-400 md:text-lg">
+						RECRUMATES ma {jobOffers.length} otwartą ofertę pracy — znajdź
 						odpowiednią dla siebie
 					</p>
 				</div>
 
 				{/* Search Bar */}
-				<div className="max-w-2xl mx-auto mb-12">
+				{/* <div className="max-w-2xl mx-auto mb-12">
 					<div className="flex flex-col sm:flex-row gap-3">
 						<input
 							type="text"
@@ -86,14 +89,14 @@ export default function JobOffers() {
 							Szukaj
 						</button>
 					</div>
-				</div>
+				</div> */}
 
 				{/* Job Offers List */}
 				<div className="mb-8">
 					<h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-6 tracking-tight">
 						Opublikowane oferty pracy
 					</h3>
-					<div className="space-y-4 max-h-[500px] overflow-y-auto custom-scrollbar">
+					<div className="space-y-4 max-h-[500px] bg-black overflow-y-auto custom-scrollbar">
 						{jobOffers.map((job) => (
 							<div
 								key={job.id}
@@ -137,24 +140,6 @@ export default function JobOffers() {
 										</div>
 									</div>
 									<div className="flex items-center gap-3">
-										<button
-											type="button"
-											className="p-2.5 hover:bg-neutral-200/80 dark:hover:bg-neutral-800 rounded-xl transition-colors"
-											aria-label="Zapisz ofertę"
-										>
-											<svg
-												className="w-5 h-5 text-neutral-500 dark:text-neutral-400"
-												fill="none"
-												strokeLinecap="round"
-												strokeLinejoin="round"
-												strokeWidth="1.5"
-												viewBox="0 0 24 24"
-												stroke="currentColor"
-												aria-hidden="true"
-											>
-												<path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
-											</svg>
-										</button>
 										<a
 											href="#contact"
 											className="whitespace-nowrap rounded-lg border border-teal-500/50 bg-teal-600 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950"

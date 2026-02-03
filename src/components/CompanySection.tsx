@@ -1,5 +1,4 @@
 import ceoImage from "../assets/CEO.jpg";
-//import hero1 from "../assets/hero1.png";
 
 export default function CompanySection() {
 	const traits = [
@@ -12,7 +11,7 @@ export default function CompanySection() {
 	return (
 		<section
 			id="company"
-			className="py-16 md:py-24 px-4 bg-neutral-950 text-neutral-100 overflow-hidden"
+			className=" relative py-16 md:py-24 px-4 bg-neutral-950 bg-gradient-to-t  text-neutral-100 overflow-hidden"
 		>
 			<div className="container mx-auto max-w-6xl">
 				<div className="grid md:grid-cols-2 gap-10 md:gap-14 lg:gap-20 items-center">

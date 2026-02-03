@@ -9,6 +9,7 @@ export default function Header() {
 		{ label: "Główna", href: "#home" },
 		{ label: "Kim jesteśmy", href: "#company" },
 		{ label: "O nas", href: "#about" },
+		{ label: "Zespół", href: "#team" },
 		{ label: "Usługi", href: "#services" },
 		{ label: "Oferty pracy", href: "#jobs" },
 		{ label: "FAQ", href: "#faq" },
@@ -20,20 +21,16 @@ export default function Header() {
 			<nav className="container mx-auto px-4 py-3 md:py-4">
 				<div className="flex items-center justify-between">
 					{/* Logo */}
-					<a
-						href="#home"
-						className="flex items-center gap-2.5"
-						aria-label="RecruMates – strona główna"
-					>
+					<a href="#home" className="" aria-label="RecruMates – strona główna">
 						<img
 							src={logoSignMobile}
 							alt="RecruMates"
-							className="h-14 w-auto object-contain md:hidden"
+							className="h-14 w-auto object-contain lg:hidden mx-auto"
 						/>
 						<img
 							src={logoSign}
 							alt="RecruMates"
-							className="h-12 w-auto object-contain hidden md:block"
+							className="h-12 w-auto object-contain hidden lg:block"
 						/>
 					</a>
 

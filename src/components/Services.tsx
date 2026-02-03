@@ -1,9 +1,4 @@
-import {
-	BriefcaseBusiness,
-	Handshake,
-	Search,
-	Target,
-} from "lucide-react";
+import { BriefcaseBusiness, Handshake, Search, Target } from "lucide-react";
 
 export default function Services() {
 	const services = [
@@ -58,7 +53,7 @@ export default function Services() {
 					{services.map(({ Icon, title, description }) => (
 						<div
 							key={title}
-							className="bg-white dark:bg-neutral-950/80 p-6 rounded-xl border border-neutral-200/80 dark:border-neutral-800/80 transition-colors"
+							className="bg-white dark:bg-neutral-950/80 shadow-lg p-6 rounded-xl border border-neutral-200/80 dark:border-neutral-800/80 transition-colors"
 						>
 							<div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-teal-500/30 bg-teal-500/10 text-teal-500 dark:border-teal-400/30 dark:bg-teal-400/10">
 								<Icon className="h-5 w-5" aria-hidden="true" />
