@@ -4,6 +4,7 @@ import CompanySection from "./components/CompanySection";
 import About from "./components/About";
 import Team from "./components/Team";
 import Services from "./components/Services";
+import CompanyStory from "./components/CompanyStory";
 import ClientLogos from "./components/ClientLogos";
 import JobOffers from "./components/JobOffers";
 import FAQ from "./components/FAQ";
@@ -19,10 +20,12 @@ function App() {
 				<CompanySection />
 				<About />
 				<Team />
+				<CompanyStory />
 				<Services />
-				<ClientLogos />
+
 				<JobOffers />
 				<FAQ />
+				<ClientLogos />
 				<Contact />
 			</main>
 			<Footer />
