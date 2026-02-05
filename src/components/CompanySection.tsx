@@ -2,10 +2,10 @@ import ceoImage from "../assets/CEO.jpg";
 
 export default function CompanySection() {
 	const traits = [
-		"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-		"Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-		"Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
-		"Duis aute irure dolor in reprehenderit in voluptate velit.",
+		"indywidualnym podejściem do każdego kandydata",
+		"partnerską współpracą z firmami",
+		"koncentracją na dopasowaniu, nie ilości",
+		"transparentną komunikacją na każdym etapie",
 	];
 
 	return (
@@ -36,16 +36,16 @@ export default function CompanySection() {
 						</h2>
 						<div className="mb-6 h-px w-12 bg-accent-500/80" aria-hidden />
 						<p className="text-lg font-thin text-neutral-200 mb-6 leading-relaxed md:text-xl">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-							enim ad minim veniam, quis nostrud exercitation ullamco laboris
-							nisi ut aliquip ex ea commodo consequat.
+							RecruMates to coś więcej niż agencja rekrutacyjna.
 						</p>
 						<p className="text-base text-neutral-500 mb-8 leading-relaxed font-normal">
-							Duis aute irure dolor in reprehenderit in voluptate velit esse
-							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-							cupidatat non proident, sunt in culpa qui officia deserunt mollit
-							anim id est laborum.
+							Jesteśmy hubem łączącym firmy i ludzi, którzy chcą rozwijać się
+							razem. Stawiamy na partnerskie podejście, autentyczne relacje i
+							realne zrozumienie potrzeb obu stron. Nie działamy według
+							schematów. Każde CV traktujemy indywidualnie, każdą firmę
+							poznajemy od środka, a każdą rekrutację prowadzimy tak, jakby
+							chodziło o nasz własny zespół. Bo dobra rekrutacja zaczyna się od
+							rozmowy.
 						</p>
 
 						<h3 className="text-lg font-semibold mb-4 text-white uppercase tracking-[0.08em]">

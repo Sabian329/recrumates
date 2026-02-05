@@ -46,9 +46,13 @@ export default function Hero() {
 						aria-hidden
 					/>
 
-					<p className="mx-auto max-w-[20rem] text-sm font-light leading-relaxed text-neutral-300 md:max-w-lg md:mb-8 md:text-xl md:font-thin md:text-neutral-200">
-						Technologia i ludzkie podejście w jednym miejscu. Budujemy ekosystem
-						rekrutacyjny łączący headhunterów w Polsce
+					<p className="mx-auto max-w-xl text-sm font-light leading-relaxed text-neutral-100 md:text-lg md:font-light md:mb-3">
+						Technologia i ludzkie podejście w jednym miejscu.
+					</p>
+					<p className="mx-auto max-w-2xl text-sm font-normal leading-relaxed text-neutral-400 md:text-base md:mb-8">
+						Łączymy firmy z najlepszymi talentami, tworząc nowoczesny hub
+						rekrutacyjny oparty na relacjach, transparentności i realnej
+						wartości.
 					</p>
 
 					{/* CTAs – tylko desktop/tablet */}
@@ -68,26 +72,6 @@ export default function Hero() {
 					</div>
 				</div>
 			</div>
-
-			{/* Pasek CTA – tylko mobile, na dole ekranu */}
-			{/* <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col sm:hidden w-full h-fit">
-				<div className="px-4 py-4 w-full">
-					<div className="mx-auto flex w-full flex-row items-stretch justify-between gap-4">
-						<a
-							href="#contact"
-							className="flex-1 min-w-0 rounded-xl border border-accent-500/50 bg-accent-600 py-3 text-center text-xs font-medium text-white transition-colors active:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:ring-offset-2 focus:ring-offset-neutral-950"
-						>
-							Zamów usługi
-						</a>
-						<a
-							href="#jobs"
-							className="flex-1 min-w-0 rounded-xl border border-white/20 bg-white/5 py-3 text-center text-xs font-medium text-white backdrop-blur-sm transition-colors active:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-neutral-950"
-						>
-							Oferty pracy
-						</a>
-					</div>
-				</div>
-			</div> */}
 		</section>
 	);
 }

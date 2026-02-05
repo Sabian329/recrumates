@@ -5,25 +5,25 @@ export default function About() {
 		{
 			title: "Nowoczesne podejście dzięki AI",
 			description:
-				"Wykorzystujemy narzędzia AI do szybszych i bardziej efektywnych działań, nie tracąc z oczu ludzkiego elementu. Technologia wspiera, ale to relacje budują sukces.",
+				"Korzystamy z narzędzi AI, aby przyspieszać procesy i docierać do najlepszych talentów bez utraty ludzkiego elementu. Technologia wspiera, ale to ludzie budują sukces.",
 			Icon: Cpu,
 		},
 		{
 			title: "Autentyczność i luz",
 			description:
-				"Bez korporacyjnych masek - jesteśmy sobą, na luzie tak często, jak to możliwe. Współpraca jest transparentna, konkretna i szczera.",
+				"Bez korporacyjnych masek. Jesteśmy sobą, komunikujemy się wprost i stawiamy na normalne, partnerskie relacje.",
 			Icon: Sparkles,
 		},
 		{
 			title: "Międzynarodowy zasięg",
 			description:
-				"Niezależnie od tego, czy szukasz talentów w Polsce, czy na całym świecie - wytrwałość to klucz do sukcesu.",
+				"Rekrutujemy lokalnie i globalnie. Docieramy do talentów tam, gdzie są, niezależnie od lokalizacji.",
 			Icon: Globe2,
 		},
 		{
 			title: "Ludzie na pierwszym miejscu",
 			description:
-				"Każda aplikacja jest widziana z jej historią, pasją i przyszłością. Chcemy, aby każdy proces rekrutacyjny czuł się jak kawa, a nie stresujący 'egzamin'.",
+				"Każda aplikacja to historia, ambicje i plany. Dbamy o to, aby proces rekrutacyjny był partnerski, przejrzysty i bez stresu.",
 			Icon: HeartHandshake,
 		},
 	];
@@ -42,9 +42,13 @@ export default function About() {
 						className="mx-auto mb-6 h-px w-12 bg-accent-500/80"
 						aria-hidden
 					/>
-					<p className="mx-auto max-w-2xl text-lg font-thin leading-relaxed text-neutral-600 dark:text-neutral-400 md:text-xl">
-						RecruMates to więcej niż agencja rekrutacyjna — to przestrzeń, gdzie
-						technologia spotyka się z autentycznym, ludzkim podejściem.
+					<p className="mx-auto max-w-3xl text-lg font-thin leading-relaxed text-neutral-600 dark:text-neutral-400 md:text-xl">
+						RecruMates to przestrzeń, w której technologia spotyka się z
+						autentycznym, ludzkim podejściem. Wykorzystujemy nowoczesne
+						narzędzia, aby działać szybciej i skuteczniej - ale to relacje są
+						dla nas fundamentem. Pomagamy firmom budować zespoły, a kandydatom
+						znaleźć miejsce, w którym mogą być sobą i rozwijać swój potencjał.
+						Nie wierzymy w masową rekrutację. Wierzymy w dobre dopasowanie.
 					</p>
 				</div>
 
@@ -77,12 +81,12 @@ export default function About() {
 						Dlaczego warto nas poznać?
 					</h3>
 					<p className="mx-auto mb-5 max-w-2xl text-base font-normal leading-relaxed text-neutral-600 dark:text-neutral-400">
-						Robimy to, co kochamy, i widać to w naszej pracy. Łączymy serca,
-						umysły i technologię, aby pomagać firmom rosnąć, a kandydatom
-						znaleźć miejsce, gdzie mogą być sobą.
+						Robimy to, co kochamy i widać to w naszej pracy.
+						<br /> Łączymy serca, umysły i technologię, aby pomagać firmom
+						rosnąć, a kandydatom znaleźć miejsce, w którym naprawdę pasują.
 					</p>
 					<p className="text-lg font-medium text-accent-600 dark:text-accent-400">
-						RecruMates. Tworzymy jakościową i przyjazną rekrutację, na luzie :)
+						RecruMates. Tworzymy jakościową i przyjazną rekrutację na luzie.
 					</p>
 				</div>
 			</div>

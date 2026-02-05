@@ -6,13 +6,13 @@ export default function Services() {
 			Icon: Search,
 			title: "Rekrutacja end-to-end",
 			description:
-				"Kompleksowa obsługa procesu rekrutacyjnego od początku do końca.",
+				"Kompleksowo prowadzimy cały proces - od analizy potrzeb po finalne zatrudnienie.",
 		},
 		{
 			Icon: Handshake,
 			title: "Specjalizacja w wielu obszarach",
 			description:
-				"Specjalizujemy się w rolach handlowych, IT, inżynierskich, CyberSec i managerskich.",
+				"Realizujemy projekty w obszarach sprzedaży, IT, inżynierii, CyberSec oraz stanowisk managerskich.",
 		},
 		{
 			Icon: BriefcaseBusiness,
@@ -46,9 +46,8 @@ export default function Services() {
 						aria-hidden
 					/>
 					<p className="mx-auto max-w-2xl text-lg font-thin leading-relaxed text-neutral-600 dark:text-neutral-400 md:text-xl">
-						RecruMates to agencja rekrutacyjna znana z przyjaznego podejścia do
-						rozmówców — profesjonalizm i empatia połączone ze zrozumieniem wielu
-						obszarów biznesu.
+						RecruMates to nowoczesny hub rekrutacyjny, który łączy
+						profesjonalizm z empatią oraz zrozumieniem biznesu.
 					</p>
 				</div>
 
@@ -79,19 +78,19 @@ export default function Services() {
 						<li className="flex items-start gap-3">
 							<span className="text-accent-500 mt-0.5 shrink-0">✓</span>
 							<span className="font-normal text-neutral-600 dark:text-neutral-400">
-								Znaleźć najlepsze talenty na rynku — szybko i efektywnie
+								znaleźć najlepsze talenty - szybko i skutecznie
 							</span>
 						</li>
 						<li className="flex items-start gap-3">
 							<span className="text-accent-500 mt-0.5 shrink-0">✓</span>
 							<span className="font-normal text-neutral-600 dark:text-neutral-400">
-								Doradzić, jak ulepszyć procesy rekrutacyjne
+								doradzić, jak usprawnić procesy rekrutacyjne
 							</span>
 						</li>
 						<li className="flex items-start gap-3">
 							<span className="text-accent-500 mt-0.5 shrink-0">✓</span>
 							<span className="font-normal text-neutral-600 dark:text-neutral-400">
-								Wspierać Twoją firmę w budowaniu przyszłościowych zespołów
+								wesprzeć Twoją firmę w budowaniu przyszłościowych zespołów
 							</span>
 						</li>
 					</ul>

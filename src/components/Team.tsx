@@ -63,10 +63,12 @@ export default function Team() {
 						className="mx-auto mb-6 h-px w-12 bg-accent-500/80"
 						aria-hidden
 					/>
-					<p className="mx-auto max-w-2xl text-lg font-thin leading-relaxed text-neutral-400 md:text-xl">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-						ad minim veniam, quis nostrud exercitation ullamco laboris.
+					<p className="mx-auto max-w-3xl text-lg font-thin leading-relaxed text-neutral-400 md:text-xl">
+						Za RecruMates stoją ludzie z doświadczeniem w rekrutacji,
+						technologii i biznesie.
+						<br /> Łączy nas jedno: chęć tworzenia lepszych procesów i realnej
+						wartości dla firm oraz kandydatów. Poznaj osoby, które będą Twoimi
+						rekrutacyjnymi mates.
 					</p>
 				</div>
 
