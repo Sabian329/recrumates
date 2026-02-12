@@ -1,58 +1,82 @@
 import baseLogo from "../assets/BASELOGO.svg";
 import { CalendarDays, MapPin } from "lucide-react";
+import { gql } from "@apollo/client";
+import { useQuery } from "@apollo/client/react";
 
 interface JobOffer {
-	id: number;
+	id: number | string;
 	title: string;
 	company: string;
 	location: string;
 	status: string;
 	posted: string;
+	active?: boolean;
 }
 
+interface AllJobOffersResponse {
+	allJobOffers: {
+		id: string;
+		title: string;
+		company: string;
+		location: string;
+		stat: string;
+		date: string | null;
+		active: boolean | null;
+	}[];
+	_allJobOffersMeta: {
+		count: number;
+	};
+}
+
+const ALL_JOB_OFFERS_QUERY = gql`
+	query AllJobOffers {
+		allJobOffers {
+			id
+			title
+			company
+			location
+			stat
+			date
+			active
+		}
+		_allJobOffersMeta {
+			count
+		}
+	}
+`;
+
 export default function JobOffers() {
-	const jobOffers: JobOffer[] = [
+	const { data, loading, error } = useQuery<AllJobOffersResponse>(
+		ALL_JOB_OFFERS_QUERY,
 		{
-			id: 1,
-			title: "Key Account Manager Observability & Monitoring",
-			company: "RecruMates",
-			location: "Warszawa i okolice",
-			status: "Aktywne przeglądanie kandydatów",
-			posted: "4 dni temu",
+			fetchPolicy: "cache-first",
 		},
-		{
-			id: 2,
-			title: "Senior Account Executive SaaS",
-			company: "RecruMates dla Klienta z branży IT",
-			location: "Hybrid – Warszawa / remote",
-			status: "Etap rozmów z wybranymi kandydatami",
-			posted: "1 tydzień temu",
-		},
-		{
-			id: 3,
-			title: "Head of Sales (B2B)",
-			company: "Scale-up technologiczny",
-			location: "Wrocław / cała Polska",
-			status: "Nowa rekrutacja",
-			posted: "2 dni temu",
-		},
-		{
-			id: 4,
-			title: "Cyber Security Engineer",
-			company: "Międzynarodowa organizacja",
-			location: "Remote z Polski",
-			status: "Aktywne poszukiwanie kandydatów",
-			posted: "5 dni temu",
-		},
-		{
-			id: 5,
-			title: "HR Business Partner",
-			company: "Organizacja produkcyjno-technologiczna",
-			location: "Poznań i okolice",
-			status: "Rozmowy kwalifikacyjne w toku",
-			posted: "1 dzień temu",
-		},
-	];
+	);
+
+	const remoteMapped: JobOffer[] =
+		data?.allJobOffers?.map(
+			(job: AllJobOffersResponse["allJobOffers"][number], index: number) => ({
+				id: job.id ?? `remote-${index}`,
+				title: job.title,
+				company: job.company,
+				location: job.location,
+				status: job.stat,
+				posted: job.date ?? "",
+				active: job.active ?? true,
+			}),
+		) ?? [];
+
+	const inactiveRemote = remoteMapped.filter((job) => job.active === false);
+	const activeRemote = remoteMapped
+		.filter((job) => job.active !== false)
+		.slice()
+		.sort((a, b) => {
+			const aTime = a.posted ? new Date(a.posted).getTime() : 0;
+			const bTime = b.posted ? new Date(b.posted).getTime() : 0;
+			return bTime - aTime;
+		});
+
+	const jobOffers: JobOffer[] = [...inactiveRemote, ...activeRemote];
 
 	return (
 		<section id="jobs" className="py-24 px-4 bg-neutral-950">
@@ -68,90 +92,110 @@ export default function JobOffers() {
 						className="mx-auto mb-6 mt-3 h-px w-12 bg-accent-500/80"
 						aria-hidden
 					/>
-					<p className="mx-auto max-w-xl text-lg font-thin text-neutral-600 dark:text-neutral-400 md:text-lg">
-						RECRUMATES ma {jobOffers.length} otwartą ofertę pracy — znajdź
-						odpowiednią dla siebie
-					</p>
+					{jobOffers.length > 0 && !error && (
+						<p className="mx-auto max-w-xl text-lg font-thin text-neutral-600 dark:text-neutral-400 md:text-lg">
+							RECRUMATES ma {jobOffers.length} opublikowanych ofert pracy —
+							znajdź odpowiednią dla siebie
+						</p>
+					)}
 				</div>
 
-				{/* Search Bar */}
-				{/* <div className="max-w-2xl mx-auto mb-12">
-					<div className="flex flex-col sm:flex-row gap-3">
-						<input
-							type="text"
-							placeholder="Stanowisko lub słowo kluczowe"
-							className="flex-1 rounded-lg border border-neutral-200 bg-white px-5 py-3.5 font-normal text-neutral-900 placeholder:text-neutral-400 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30 dark:border-neutral-700 dark:bg-neutral-900/80 dark:text-white dark:placeholder:text-neutral-500"
-						/>
-						<button
-							type="button"
-							className="rounded-lg border border-accent-500/50 bg-accent-600 px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950"
-						>
-							Szukaj
-						</button>
-					</div>
-				</div> */}
+				{loading && (
+					<p className="text-center text-sm text-neutral-400 mb-4">
+						Ładowanie ofert z DatoCMS…
+					</p>
+				)}
+				{(error || (!loading && jobOffers.length === 0)) && (
+					<p className="text-center text-sm text-red-400 mb-4">
+						Nie udało się pobrać ofert. Skontaktuj się z nami, jeśli chcesz
+						poznać aktualne możliwości.
+					</p>
+				)}
 
 				{/* Job Offers List */}
-				<div className="mb-8">
-					<h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-6 tracking-tight">
-						Opublikowane oferty pracy
-					</h3>
-					<div className="space-y-4 max-h-[500px]  overflow-y-auto custom-scrollbar">
-						{jobOffers.map((job) => (
-							<div
-								key={job.id}
-								className="rounded-xl border border-neutral-200/80 bg-neutral-50 p-6 transition-colors dark:border-neutral-800/80 dark:bg-neutral-900/50 mr-2"
-							>
-								<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-									<div className="flex-1">
-										<div className="flex items-center gap-3 mb-2">
-											<img
-												src={baseLogo}
-												alt=""
-												className="w-11 h-11  object-contain"
-												aria-hidden="true"
-											/>
-
-											<div>
-												<h4 className="text-lg font-semibold text-neutral-900 dark:text-white tracking-tight">
-													{job.title}
-												</h4>
-												<p className="text-neutral-500 dark:text-neutral-400 text-sm font-normal">
-													{job.company}
-												</p>
-											</div>
-										</div>
-										<div className="flex flex-wrap items-center gap-4 mt-3 text-sm text-neutral-500 dark:text-neutral-400 font-normal">
-											<span className="flex items-center gap-1.5">
-												<MapPin className="h-4 w-4" aria-hidden="true" />
-												{job.location}
-											</span>
-											<span className="flex items-center gap-2 text-accent-600 dark:text-accent-400">
-												<span className="w-1.5 h-1.5 bg-accent-500 rounded-full animate-pulse"></span>
-												{job.status}
-											</span>
-											<span>
-												<CalendarDays
-													className="mr-1 inline-block h-4 w-4 align-middle"
+				{jobOffers.length > 0 && (
+					<div className="mb-8">
+						<h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-6 tracking-tight">
+							Opublikowane oferty pracy
+						</h3>
+						<div className="space-y-4 max-h-[500px]  overflow-y-auto custom-scrollbar">
+							{jobOffers.map((job) => (
+								<div
+									key={job.id}
+									className={`rounded-xl border p-6 transition-colors mr-2 ${
+										job.active === false
+											? "border-neutral-300/80 bg-neutral-900/80 dark:border-neutral-800/80"
+											: "border-neutral-200/80 bg-neutral-50 dark:border-neutral-800/80 dark:bg-neutral-900/50"
+									}`}
+								>
+									<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+										<div className="flex-1">
+											<div className="flex items-center gap-3 mb-2">
+												<img
+													src={baseLogo}
+													alt=""
+													className="w-11 h-11  object-contain"
 													aria-hidden="true"
 												/>
-												{job.posted}
-											</span>
+
+												<div>
+													<h4 className="text-lg font-semibold text-neutral-900 dark:text-white tracking-tight">
+														{job.title}
+													</h4>
+													<p className="text-neutral-500 dark:text-neutral-400 text-sm font-normal">
+														{job.company}
+													</p>
+												</div>
+											</div>
+											<div className="flex flex-wrap items-center gap-4 mt-3 text-sm text-neutral-500 dark:text-neutral-400 font-normal">
+												<span className="flex items-center gap-1.5">
+													<MapPin className="h-4 w-4" aria-hidden="true" />
+													{job.location}
+												</span>
+												<span
+													className={`flex items-center gap-2 ${
+														job.active === false
+															? "text-neutral-500 dark:text-neutral-500"
+															: "text-accent-600 dark:text-accent-400"
+													}`}
+												>
+													<span
+														className={`w-1.5 h-1.5 rounded-full ${
+															job.active === false
+																? "bg-neutral-500"
+																: "bg-accent-500 animate-pulse"
+														}`}
+													/>
+													{job.status}
+												</span>
+												<span>
+													<CalendarDays
+														className="mr-1 inline-block h-4 w-4 align-middle"
+														aria-hidden="true"
+													/>
+													{job.posted}
+												</span>
+											</div>
+										</div>
+										<div className="flex items-center gap-3">
+											<a
+												href="#contact"
+												className={`whitespace-nowrap rounded-lg border border-accent-500/50 px-5 py-3 text-sm font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950 ${
+													job.active === false
+														? "bg-neutral-600 cursor-not-allowed opacity-60 pointer-events-none"
+														: "bg-accent-600 hover:bg-accent-500"
+												}`}
+												aria-disabled={job.active === false}
+											>
+												Aplikuj
+											</a>
 										</div>
 									</div>
-									<div className="flex items-center gap-3">
-										<a
-											href="#contact"
-											className="whitespace-nowrap rounded-lg border border-accent-500/50 bg-accent-600 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950"
-										>
-											Aplikuj
-										</a>
-									</div>
 								</div>
-							</div>
-						))}
+							))}
+						</div>
 					</div>
-				</div>
+				)}
 
 				{jobOffers.length > 0 && (
 					<div className="text-center">

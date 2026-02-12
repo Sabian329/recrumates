@@ -1,30 +1,45 @@
-import team1 from "../assets/team/team1.png";
-import team2 from "../assets/team/team2.png";
-import team3 from "../assets/team/team3.png";
 import LightRays from "./ui/LightRays";
+import { gql } from "@apollo/client";
+import { useQuery } from "@apollo/client/react";
 
-const team = [
-	{
-		name: "Maciej Sabada",
-		role: "Co-Founder / CEO",
-		location: "Wrocław, Polska",
-		image: team1,
-	},
-	{
-		name: "Kasia Kowalska",
-		role: "Co-Founder / CTO",
-		location: "Warszawa, Polska",
-		image: team2,
-	},
-	{
-		name: "Kasia Kowalska",
-		role: "Co-Founder / CTO",
-		location: "Warszawa, Polska",
-		image: team3,
-	},
-];
+interface TeamMember {
+	id: string;
+	name: string;
+	role: string;
+	location: string;
+	photo: {
+		url: string;
+	};
+}
+
+interface AllTeamMembersResponse {
+	allTeamMembers: TeamMember[];
+}
+
+const ALL_TEAM_MEMBERS_QUERY = gql`
+	query AllTeamMembers {
+		allTeamMembers {
+			role
+			photo {
+				url
+			}
+			name
+			location
+			id
+		}
+	}
+`;
 
 export default function Team() {
+	const { data, loading, error } = useQuery<AllTeamMembersResponse>(
+		ALL_TEAM_MEMBERS_QUERY,
+		{
+			fetchPolicy: "cache-first",
+		},
+	);
+
+	const team = data?.allTeamMembers ?? [];
+
 	return (
 		<section
 			id="team"
@@ -72,31 +87,45 @@ export default function Team() {
 					</p>
 				</div>
 
-				<div className="flex sm:flex-row flex-col justify-center items-center gap-10">
-					{team.map((member) => (
-						<div key={member.name} className="group text-center">
-							<div className="relative mb-4 rounded-xl overflow-hidden border border-neutral-800/80 bg-neutral-900/50 aspect-square max-w-[240px] mx-auto">
-								<img
-									src={member.image}
-									alt=""
-									className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
-									loading="lazy"
-									width={500}
-									height={500}
-								/>
+				{loading && (
+					<p className="text-center text-sm text-neutral-400 mb-6">
+						Ładowanie zespołu z DatoCMS…
+					</p>
+				)}
+				{(error || (!loading && team.length === 0)) && (
+					<p className="text-center text-sm text-red-400 mb-6">
+						Nie udało się pobrać informacji o zespole z DatoCMS lub nie ma
+						opublikowanych członków zespołu.
+					</p>
+				)}
+
+				{team.length > 0 && (
+					<div className="flex sm:flex-row flex-col justify-center items-center gap-10">
+						{team.map((member) => (
+							<div key={member.id} className="group text-center">
+								<div className="relative mb-4 rounded-xl overflow-hidden border border-neutral-800/80 bg-neutral-900/50 aspect-square max-w-[240px] mx-auto">
+									<img
+										src={member.photo.url}
+										alt={member.name}
+										className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+										loading="lazy"
+										width={500}
+										height={500}
+									/>
+								</div>
+								<h3 className="text-lg font-semibold tracking-tight text-white mb-1">
+									{member.name}
+								</h3>
+								<p className="text-sm font-medium text-accent-400/90 mb-0.5">
+									{member.role}
+								</p>
+								<p className="text-sm text-neutral-500 font-normal">
+									{member.location}
+								</p>
 							</div>
-							<h3 className="text-lg font-semibold tracking-tight text-white mb-1">
-								{member.name}
-							</h3>
-							<p className="text-sm font-medium text-accent-400/90 mb-0.5">
-								{member.role}
-							</p>
-							<p className="text-sm text-neutral-500 font-normal">
-								{member.location}
-							</p>
-						</div>
-					))}
-				</div>
+						))}
+					</div>
+				)}
 			</div>
 		</section>
 	);
