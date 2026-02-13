@@ -19,7 +19,6 @@ export default function Hero() {
 				className="absolute inset-0 z-0 hidden h-full w-full object-cover object-center sm:block"
 			/>
 
-			{/* Overlay – mocniejszy u góry na mobile dla czytelności */}
 			<div
 				className="absolute inset-0 z-[1] bg-gradient-to-b from-neutral-950/85 via-neutral-950/45 to-neutral-950/70 md:from-neutral-950/70 md:via-neutral-950/50 md:to-neutral-950"
 				aria-hidden
@@ -33,10 +32,10 @@ export default function Hero() {
 					</p>
 
 					<h1 className="mb-2 flex flex-wrap items-baseline justify-center gap-x-2 gap-y-0 md:mb-4">
-						<span className="text-4xl font-semibold tracking-[0.28em] text-white md:text-7xl md:leading-[1.05] md:tracking-widest">
+						<span className="text-4xl font-semibold tracking-[0.28em] text-white/70 md:text-7xl md:leading-[1.05] md:tracking-widest">
 							RECRU
 						</span>
-						<span className="text-4xl font-semibold tracking-[0.28em] text-white md:text-7xl md:leading-[1.05] md:tracking-widest">
+						<span className="text-4xl font-semibold tracking-[0.28em] text-white/70 md:text-7xl md:leading-[1.05] md:tracking-widest">
 							MATES
 						</span>
 					</h1>

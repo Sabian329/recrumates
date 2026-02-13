@@ -21,6 +21,33 @@
 		font-family:
 			"Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 	}
+
+	/* Neutralizowanie systemowego autofillu (np. niebieskie tło na macOS) */
+	input:-webkit-autofill,
+	input:-webkit-autofill:hover,
+	input:-webkit-autofill:focus,
+	textarea:-webkit-autofill,
+	textarea:-webkit-autofill:hover,
+	textarea:-webkit-autofill:focus {
+		/* dopasuj do jasnego motywu formularza */
+		-webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
+		box-shadow: 0 0 0px 1000px #ffffff inset;
+		-webkit-text-fill-color: #1d1f27; /* neutral-900 */
+		transition: background-color 9999s ease-in-out 0s;
+	}
+
+	.dark input:-webkit-autofill,
+	.dark input:-webkit-autofill:hover,
+	.dark input:-webkit-autofill:focus,
+	.dark textarea:-webkit-autofill,
+	.dark textarea:-webkit-autofill:hover,
+	.dark textarea:-webkit-autofill:focus {
+		/* dopasuj do ciemnego motywu formularza */
+		-webkit-box-shadow: 0 0 0px 1000px #202127 inset; /* neutral-950 */
+		box-shadow: 0 0 0px 1000px #1a1a1c inset;
+		-webkit-text-fill-color: #f9fafb; /* neutral-50 */
+		transition: background-color 9999s ease-in-out 0s;
+	}
 }
 
 /* Design system: jeden akcent, minimalne cienie */

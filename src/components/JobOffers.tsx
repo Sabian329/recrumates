@@ -1,7 +1,9 @@
+import { useState } from "react";
 import baseLogo from "../assets/BASELOGO.svg";
 import { CalendarDays, MapPin } from "lucide-react";
 import { gql } from "@apollo/client";
 import { useQuery } from "@apollo/client/react";
+import JobApplyModal from "./JobApplyModal";
 
 interface JobOffer {
 	id: number | string;
@@ -46,6 +48,8 @@ const ALL_JOB_OFFERS_QUERY = gql`
 `;
 
 export default function JobOffers() {
+	const [selectedJob, setSelectedJob] = useState<JobOffer | null>(null);
+
 	const { data, loading, error } = useQuery<AllJobOffersResponse>(
 		ALL_JOB_OFFERS_QUERY,
 		{
@@ -77,6 +81,14 @@ export default function JobOffers() {
 		});
 
 	const jobOffers: JobOffer[] = [...inactiveRemote, ...activeRemote];
+
+	const handleOpenApplyModal = (job: JobOffer) => {
+		setSelectedJob(job);
+	};
+
+	const handleCloseApplyModal = () => {
+		setSelectedJob(null);
+	};
 
 	return (
 		<section id="jobs" className="py-24 px-4 bg-neutral-950">
@@ -166,7 +178,9 @@ export default function JobOffers() {
 																: "bg-accent-500 animate-pulse"
 														}`}
 													/>
-													{job.status}
+													{job.active === false
+														? "Oferta nieaktywna"
+														: job.status}
 												</span>
 												<span>
 													<CalendarDays
@@ -178,8 +192,13 @@ export default function JobOffers() {
 											</div>
 										</div>
 										<div className="flex items-center gap-3">
-											<a
-												href="#contact"
+											<button
+												type="button"
+												onClick={() =>
+													job.active === false
+														? undefined
+														: handleOpenApplyModal(job)
+												}
 												className={`whitespace-nowrap rounded-lg border border-accent-500/50 px-5 py-3 text-sm font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950 ${
 													job.active === false
 														? "bg-neutral-600 cursor-not-allowed opacity-60 pointer-events-none"
@@ -188,13 +207,25 @@ export default function JobOffers() {
 												aria-disabled={job.active === false}
 											>
 												Aplikuj
-											</a>
+											</button>
 										</div>
 									</div>
 								</div>
 							))}
 						</div>
 					</div>
+				)}
+
+				{selectedJob && (
+					<JobApplyModal
+						job={{
+							id: selectedJob.id,
+							title: selectedJob.title,
+							company: selectedJob.company,
+							location: selectedJob.location,
+						}}
+						onClose={handleCloseApplyModal}
+					/>
 				)}
 
 				{jobOffers.length > 0 && (
