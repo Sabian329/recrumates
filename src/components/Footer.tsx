@@ -1,4 +1,5 @@
 import baseLogo from "../assets/LOGO+SIGN.svg";
+import adfuseLogo from "../assets/adfuseLogo.svg";
 
 export default function Footer() {
 	return (
@@ -21,7 +22,7 @@ export default function Footer() {
 							</a>
 						</div>
 						<p className="text-neutral-500 text-sm font-normal leading-relaxed">
-							Tworzymy jakościową i przyjazną rekrutację, na luzie :)
+							Tworzymy jakościową i przyjazną rekrutację, na luzie
 						</p>
 					</div>
 
@@ -124,16 +125,24 @@ export default function Footer() {
 
 				<div className="border-t border-neutral-800 pt-8">
 					<div className="flex flex-col md:flex-row justify-between items-center gap-4">
-						<p className="text-xs text-neutral-500 font-normal">
-							Created by{" "}
-							<a
-								href="https://adfuse.pl"
-								target="_blank"
-								rel="noreferrer"
-								className="underline decoration-accent-500/40 underline-offset-2 hover:text-accent-400 hover:decoration-accent-500 transition-colors"
-							>
-								adfuse
-							</a>
+						<p className="flex items-center gap-2 text-xs text-neutral-500 font-normal">
+							<span>
+								Created by{" "}
+								<a
+									href="https://adfuse.pl"
+									target="_blank"
+									rel="noreferrer"
+									className="underline decoration-accent-500/40 underline-offset-2 hover:text-accent-400 hover:decoration-accent-500 transition-colors"
+								>
+									<span className="inline-flex w-14 items-center justify-center rounded">
+										<img
+											src={adfuseLogo}
+											alt="AdFuse"
+											className="w-full object-contain"
+										/>
+									</span>
+								</a>
+							</span>
 						</p>
 						<p className="text-neutral-500 text-sm font-normal">
 							© {new Date().getFullYear()} RecruMates. All rights reserved.
