@@ -1,5 +1,6 @@
 import { Input, Textarea } from "@headlessui/react";
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
+import { Link } from "react-router-dom";
 
 interface JobApplyModalProps {
 	job: {
@@ -16,8 +17,14 @@ export default function JobApplyModal({ job, onClose }: JobApplyModalProps) {
 		"idle" | "loading" | "success" | "error"
 	>("idle");
 	const [errorMessage, setErrorMessage] = useState<string | null>(null);
+	const [isFormValid, setIsFormValid] = useState(false);
+	const formRef = useRef<HTMLFormElement>(null);
 
 	const accessKey = import.meta.env.VITE_MAIL_KEY;
+
+	const checkFormValidity = () => {
+		setIsFormValid(formRef.current?.checkValidity() ?? false);
+	};
 
 	useEffect(() => {
 		if (status === "success") {
@@ -29,6 +36,12 @@ export default function JobApplyModal({ job, onClose }: JobApplyModalProps) {
 		}
 		return;
 	}, [status, onClose]);
+
+	useEffect(() => {
+		if (status !== "success" && formRef.current) {
+			setIsFormValid(formRef.current.checkValidity());
+		}
+	}, [status]);
 
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -127,7 +140,13 @@ export default function JobApplyModal({ job, onClose }: JobApplyModalProps) {
 								×
 							</button>
 						</div>
-						<form className="space-y-4 mt-2" onSubmit={handleSubmit}>
+						<form
+							ref={formRef}
+							className="space-y-4 mt-2"
+							onSubmit={handleSubmit}
+							onChange={checkFormValidity}
+							onInput={checkFormValidity}
+						>
 							<div>
 								<label
 									htmlFor="apply-name"
@@ -210,10 +229,43 @@ export default function JobApplyModal({ job, onClose }: JobApplyModalProps) {
 									className="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-2.5 text-sm text-white placeholder:text-neutral-500 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30 resize-none"
 								/>
 							</div>
+							<div className="flex items-start gap-3">
+								<input
+									id="apply-privacy"
+									name="privacy_consent"
+									type="checkbox"
+									required
+									className="mt-1 h-4 w-4 flex-shrink-0 rounded border-neutral-600 bg-neutral-900 accent-accent-500 focus:ring-2 focus:ring-accent-500/30 focus:ring-offset-0 focus:ring-offset-neutral-950"
+									aria-describedby="apply-privacy-desc"
+								/>
+								<label
+									id="apply-privacy-desc"
+									htmlFor="apply-privacy"
+									className="text-xs font-normal leading-relaxed text-neutral-400"
+								>
+									Wyrażam zgodę na przetwarzanie moich danych osobowych w celu
+									realizacji procesu rekrutacji zgodnie z{" "}
+									<Link
+										to="/polityka-prywatnosci"
+										target="_blank"
+										rel="noopener noreferrer"
+										className="text-accent-400 underline underline-offset-2 hover:text-accent-300"
+									>
+										polityką prywatności
+									</Link>
+									.
+								</label>
+							</div>
 							<button
 								type="submit"
-								disabled={status === "loading"}
-								className="w-full rounded-lg border border-accent-500/50 bg-accent-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-accent-500 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:ring-offset-2 focus:ring-offset-neutral-950"
+								disabled={!isFormValid || status === "loading"}
+								className={`w-full rounded-lg border px-6 py-3 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:ring-offset-2 focus:ring-offset-neutral-950 ${
+									status === "loading"
+										? "border-accent-500/50 bg-accent-600 text-white opacity-60 cursor-not-allowed"
+										: !isFormValid
+											? "border-neutral-600 bg-neutral-700 text-neutral-500 cursor-not-allowed"
+											: "border-accent-500/50 bg-accent-600 text-white hover:bg-accent-500"
+								}`}
 							>
 								{status === "loading"
 									? "Wysyłanie aplikacji..."
