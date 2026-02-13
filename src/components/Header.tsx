@@ -12,13 +12,15 @@ export default function Header() {
 		{ label: "Zespół", href: "#team" },
 		{ label: "Usługi", href: "#services" },
 		{ label: "Oferty pracy", href: "#jobs" },
-		{ label: "FAQ", href: "#faq" },
 		{ label: "Kontakt", href: "#contact" },
 	];
 
 	return (
 		<header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-neutral-950/80 backdrop-blur-xl border-b border-neutral-200/80 dark:border-neutral-800/80">
-			<nav className="container mx-auto px-4 py-3 md:py-4">
+			<nav
+				className="container mx-auto px-4 py-3 md:py-4"
+				aria-label="Główna nawigacja strony RecruMates"
+			>
 				<div className="flex items-center justify-between">
 					{/* Logo */}
 					<a href="#home" className="" aria-label="RecruMates – strona główna">

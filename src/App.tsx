@@ -5,9 +5,8 @@ import About from "./components/About";
 import Team from "./components/Team";
 import Services from "./components/Services";
 import CompanyStory from "./components/CompanyStory";
-import ClientLogos from "./components/ClientLogos";
 import JobOffers from "./components/JobOffers";
-import FAQ from "./components/FAQ";
+import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
@@ -23,8 +22,7 @@ function App() {
 				<CompanyStory />
 				<Services />
 				<JobOffers />
-				<FAQ />
-				<ClientLogos />
+				<Testimonials />
 				<Contact />
 			</main>
 			<Footer />

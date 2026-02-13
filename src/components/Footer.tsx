@@ -97,10 +97,10 @@ export default function Footer() {
 							<li>Polska</li>
 							<li>
 								<a
-									href="mailto:kontakt@recrumates.pl"
+									href="mailto:maciej.recrumates@gmail.com"
 									className="hover:text-accent-400 transition-colors"
 								>
-									kontakt@recrumates.pl
+									maciej.recrumates@gmail.com
 								</a>
 							</li>
 						</ul>
