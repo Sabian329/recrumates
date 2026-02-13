@@ -71,6 +71,14 @@ export default function Footer() {
 									Oferty pracy
 								</a>
 							</li>
+							<li>
+								<a
+									href="/polityka-prywatnosci"
+									className="text-neutral-500 hover:text-accent-400 transition-colors"
+								>
+									Polityka prywatności
+								</a>
+							</li>
 						</ul>
 					</div>
 
@@ -94,7 +102,14 @@ export default function Footer() {
 						</h4>
 						<ul className="space-y-2.5 text-sm text-neutral-500 font-normal">
 							<li>Wrocław, Dolnośląskie</li>
-							<li>Polska</li>
+							<li>
+								<a
+									href="tel:+48609896011"
+									className="hover:text-accent-400 transition-colors"
+								>
+									+48 609 896 011
+								</a>
+							</li>
 							<li>
 								<a
 									href="mailto:maciej.recrumates@gmail.com"
@@ -109,18 +124,19 @@ export default function Footer() {
 
 				<div className="border-t border-neutral-800 pt-8">
 					<div className="flex flex-col md:flex-row justify-between items-center gap-4">
-						<div className="flex flex-wrap gap-2 text-xs text-neutral-500 font-normal">
-							<span>#Rekrutacja</span>
-							<span>#AIRekrutacja</span>
-							<span>#LudzkaStronaHR</span>
-							<span>#RecruMates</span>
-							<span>#Talenty</span>
-							<span>#Rozwój</span>
-							<span>#Łączymy</span>
-						</div>
+						<p className="text-xs text-neutral-500 font-normal">
+							Created by{" "}
+							<a
+								href="https://adfuse.pl"
+								target="_blank"
+								rel="noreferrer"
+								className="underline decoration-accent-500/40 underline-offset-2 hover:text-accent-400 hover:decoration-accent-500 transition-colors"
+							>
+								adfuse
+							</a>
+						</p>
 						<p className="text-neutral-500 text-sm font-normal">
-							© {new Date().getFullYear()} RecruMates. Wszystkie prawa
-							zastrzeżone.
+							© {new Date().getFullYear()} RecruMates. All rights reserved.
 						</p>
 					</div>
 				</div>

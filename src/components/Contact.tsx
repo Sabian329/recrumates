@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import contactBackground from "../assets/contact-bg.jpg";
 import {
 	MapPin,
@@ -17,8 +18,32 @@ export default function Contact() {
 		"idle" | "loading" | "success" | "error"
 	>("idle");
 	const [errorMessage, setErrorMessage] = useState<string | null>(null);
+	const [isFormValid, setIsFormValid] = useState(false);
+	const [phoneCopied, setPhoneCopied] = useState(false);
+	const [emailCopied, setEmailCopied] = useState(false);
+	const formRef = useRef<HTMLFormElement>(null);
 
 	const accessKey = import.meta.env.VITE_MAIL_KEY;
+
+	const checkFormValidity = () => {
+		setIsFormValid(formRef.current?.checkValidity() ?? false);
+	};
+
+	const handleCopyToClipboard = async (
+		value: string,
+		type: "phone" | "email",
+	) => {
+		try {
+			await navigator.clipboard.writeText(value);
+			if (type === "phone") {
+				setPhoneCopied(true);
+			} else {
+				setEmailCopied(true);
+			}
+		} catch (err) {
+			console.error("[Clipboard] Nie udało się skopiować wartości", err);
+		}
+	};
 
 	useEffect(() => {
 		if (status === "success") {
@@ -28,6 +53,23 @@ export default function Contact() {
 			return () => clearTimeout(timeout);
 		}
 		return;
+	}, [status]);
+
+	useEffect(() => {
+		if (!phoneCopied && !emailCopied) return;
+
+		const timeout = setTimeout(() => {
+			setPhoneCopied(false);
+			setEmailCopied(false);
+		}, 2000);
+
+		return () => clearTimeout(timeout);
+	}, [phoneCopied, emailCopied]);
+
+	useEffect(() => {
+		if (status !== "success" && formRef.current) {
+			setIsFormValid(formRef.current.checkValidity());
+		}
 	}, [status]);
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -108,11 +150,11 @@ export default function Contact() {
 					</p>
 				</header>
 
-				<div className="grid gap-10 md:grid-cols-2 md:items-start md:gap-6">
+				<div className="grid gap-10 md:grid-cols-2 md:items-stretch md:gap-6">
 					{/* Left: Contact info + CTA */}
-					<div className="flex flex-col gap-6">
+					<div className="flex min-h-0 flex-col gap-6 md:h-full">
 						{/* Contact details card */}
-						<div className="rounded-xl border border-neutral-200/80 bg-neutral-50/80 p-6 dark:border-neutral-800/80 dark:bg-neutral-900/50">
+						<div className="flex-shrink-0 rounded-xl border border-neutral-200/80 bg-neutral-50/80 p-6 dark:border-neutral-800/80 dark:bg-neutral-900/50">
 							<h3 className="mb-5 text-sm font-semibold uppercase tracking-[0.08em] text-neutral-900 dark:text-white">
 								Informacje kontaktowe
 							</h3>
@@ -142,9 +184,20 @@ export default function Contact() {
 										<p className="text-xs font-medium uppercase tracking-[0.06em] text-neutral-500 dark:text-neutral-400">
 											Telefon
 										</p>
-										<p className="mt-1 text-sm font-normal text-neutral-900 dark:text-white">
+										<button
+											type="button"
+											onClick={() =>
+												handleCopyToClipboard("+48 609 896 011", "phone")
+											}
+											className="mt-1 text-sm font-normal text-accent-500  decoration-accent-500/30 underline-offset-2 hover:decoration-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:ring-offset-2 focus:ring-offset-neutral-950"
+										>
 											+48 609 896 011
-										</p>
+										</button>
+										{phoneCopied && (
+											<p className="mt-1 text-[11px] font-normal text-neutral-400">
+												Numer skopiowany do schowka.
+											</p>
+										)}
 									</div>
 								</li>
 								<li className="flex items-start gap-4 py-4 first:pt-0 last:pb-0">
@@ -156,23 +209,41 @@ export default function Contact() {
 										<p className="text-xs font-medium uppercase tracking-[0.06em] text-neutral-500 dark:text-neutral-400">
 											Email
 										</p>
-										<p className="mt-1 text-sm font-normal text-neutral-900 dark:text-white">
+										<button
+											type="button"
+											onClick={() =>
+												handleCopyToClipboard(
+													"maciej.recrumates@gmail.com",
+													"email",
+												)
+											}
+											className="mt-1 text-sm font-normal text-accent-500 decoration-accent-500/30 underline-offset-2 hover:decoration-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:ring-offset-2 focus:ring-offset-neutral-950"
+										>
 											maciej.recrumates@gmail.com
-										</p>
+										</button>
+										{emailCopied && (
+											<p className="mt-1 text-[11px] font-normal text-neutral-400">
+												Email skopiowany do schowka.
+											</p>
+										)}
 									</div>
 								</li>
 							</ul>
 						</div>
 
 						{/* CTA card */}
-						<div className="rounded-xl border h-[275px] border-neutral-200/80 bg-neutral-50/80 p-6 dark:border-neutral-800/80 dark:bg-neutral-900/50 flex flex-col justify-between">
+						<div className="flex min-h-[200px] flex-1 flex-col justify-between rounded-xl border border-neutral-200/80 bg-neutral-50/80 p-6 dark:border-neutral-800/80 dark:bg-neutral-900/50">
 							<h4 className="mb-2 text-sm font-semibold uppercase tracking-[0.06em] text-neutral-900 dark:text-white flex items-start justify-start">
 								Gotowy na współpracę?
 							</h4>
 							<p className="mb-5 text-sm font-normal leading-relaxed text-neutral-600 dark:text-neutral-400">
-								Opowiedz nam o swoich potrzebach rekrutacyjnych.
+								Opowiedz nam o swoim zespole, planach zatrudnień i wyzwaniach
+								rekrutacyjnych. Dobierzemy model współpracy dopasowany do etapu
+								rozwoju Twojej firmy – od pojedynczych rekrutacji po stałe
+								wsparcie w formie RPO.
 								<br />
-								Odpowiemy w ciągu 24 godzin.
+								Zwykle odpowiadamy w ciągu 24 godzin roboczych z pierwszym
+								pomysłem na dalsze kroki.
 							</p>
 							<div>
 								<p className="mt-4 text-xs font-normal text-neutral-500 dark:text-neutral-400">
@@ -191,7 +262,7 @@ export default function Contact() {
 									</span>
 									<div className="flex items-center gap-3">
 										<a
-											href="https://www.linkedin.com/company/recrumates"
+											href="https://pl.linkedin.com/company/recrumates"
 											target="_blank"
 											rel="noreferrer"
 											aria-label="LinkedIn"
@@ -200,7 +271,7 @@ export default function Contact() {
 											<Linkedin className="h-4 w-4" aria-hidden="true" />
 										</a>
 										<a
-											href="https://www.instagram.com"
+											href="https://pl.linkedin.com/company/recrumates"
 											target="_blank"
 											rel="noreferrer"
 											aria-label="Instagram"
@@ -209,7 +280,7 @@ export default function Contact() {
 											<Instagram className="h-4 w-4" aria-hidden="true" />
 										</a>
 										<a
-											href="https://www.facebook.com"
+											href="https://pl.linkedin.com/company/recrumates"
 											target="_blank"
 											rel="noreferrer"
 											aria-label="Facebook"
@@ -224,7 +295,7 @@ export default function Contact() {
 					</div>
 
 					{/* Right: Form / success state */}
-					<div className="rounded-xl border border-neutral-200/80 bg-neutral-50/80 p-6 dark:border-neutral-800/80 dark:bg-neutral-900/50 md:p-8 flex flex-col h-[600px]">
+					<div className="flex min-h-0 flex-col overflow-y-auto rounded-xl border border-neutral-200/80 bg-neutral-50/80 p-6 dark:border-neutral-800/80 dark:bg-neutral-900/50 md:min-h-0 md:p-8">
 						{status === "success" ? (
 							<div className="flex flex-1 flex-col items-center justify-center text-center py-8">
 								<div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-500/10 text-green-400">
@@ -243,7 +314,13 @@ export default function Contact() {
 								<h3 className="mb-6 text-sm font-semibold uppercase tracking-[0.08em] text-neutral-900 dark:text-white">
 									Wyślij zapytanie
 								</h3>
-								<form className="space-y-5" onSubmit={handleSubmit}>
+								<form
+									ref={formRef}
+									className="flex min-h-0 flex-col space-y-5"
+									onSubmit={handleSubmit}
+									onChange={checkFormValidity}
+									onInput={checkFormValidity}
+								>
 									<div>
 										<label
 											htmlFor="contact-name"
@@ -310,10 +387,43 @@ export default function Contact() {
 											className={`${inputBase} resize-none`}
 										/>
 									</div>
+									<div className="flex items-start gap-3">
+										<input
+											id="contact-privacy"
+											name="privacy_consent"
+											type="checkbox"
+											required
+											className="mt-1 h-4 w-4 flex-shrink-0 rounded border-neutral-300 bg-white accent-accent-500 focus:ring-2 focus:ring-accent-500/30 focus:ring-offset-0 dark:border-neutral-600 dark:bg-neutral-900 dark:focus:ring-offset-neutral-950"
+											aria-describedby="contact-privacy-desc"
+										/>
+										<label
+											id="contact-privacy-desc"
+											htmlFor="contact-privacy"
+											className="text-xs font-normal leading-relaxed text-neutral-600 dark:text-neutral-400"
+										>
+											Wyrażam zgodę na przetwarzanie moich danych osobowych w
+											celu odpowiedzi na zapytanie zgodnie z{" "}
+											<Link
+												to="/polityka-prywatnosci"
+												target="_blank"
+												rel="noopener noreferrer"
+												className="text-accent-600 underline underline-offset-2 hover:text-accent-500 dark:text-accent-400 dark:hover:text-accent-300"
+											>
+												polityką prywatności
+											</Link>
+											.
+										</label>
+									</div>
 									<button
 										type="submit"
-										disabled={status === "loading"}
-										className="w-full rounded-lg border border-accent-500/50 bg-accent-600 px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-accent-500 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950"
+										disabled={!isFormValid || status === "loading"}
+										className={`w-full rounded-lg border px-6 py-3.5 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950 ${
+											status === "loading"
+												? "border-accent-500/50 bg-accent-600 text-white opacity-60 cursor-not-allowed"
+												: !isFormValid
+													? "border-neutral-400 bg-neutral-300 text-neutral-500 cursor-not-allowed dark:border-neutral-600 dark:bg-neutral-700 dark:text-neutral-500"
+													: "border-accent-500/50 bg-accent-600 text-white hover:bg-accent-500"
+										}`}
 									>
 										{status === "loading" ? "Wysyłanie..." : "Wyślij wiadomość"}
 									</button>
