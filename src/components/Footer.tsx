@@ -1,7 +1,16 @@
 import baseLogo from "../assets/LOGO+SIGN.svg";
 import adfuseLogo from "../assets/adfuseLogo.svg";
+import { useContactData } from "../hooks/useContactData";
 
 export default function Footer() {
+	const { contact } = useContactData();
+
+	const contactLocation = contact?.location ?? "Wrocław, Dolnośląskie";
+	const contactPhone = contact?.phone ?? "+48 609 896 011";
+	const contactEmail = contact?.email ?? "maciej.recrumates@gmail.com";
+	const contactPhoneHref = `tel:${contactPhone.replace(/[^+\d]/g, "")}`;
+	const contactEmailHref = `mailto:${contactEmail}`;
+
 	return (
 		<footer className="bg-neutral-950 text-neutral-300 py-14 px-4">
 			<div className="container mx-auto max-w-6xl">
@@ -102,21 +111,21 @@ export default function Footer() {
 							Kontakt
 						</h4>
 						<ul className="space-y-2.5 text-sm text-neutral-500 font-normal">
-							<li>Wrocław, Dolnośląskie</li>
+							<li>{contactLocation}</li>
 							<li>
 								<a
-									href="tel:+48609896011"
+									href={contactPhoneHref}
 									className="hover:text-accent-400 transition-colors"
 								>
-									+48 609 896 011
+									{contactPhone}
 								</a>
 							</li>
 							<li>
 								<a
-									href="mailto:maciej.recrumates@gmail.com"
+									href={contactEmailHref}
 									className="hover:text-accent-400 transition-colors"
 								>
-									maciej.recrumates@gmail.com
+									{contactEmail}
 								</a>
 							</li>
 						</ul>

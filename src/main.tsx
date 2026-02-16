@@ -5,12 +5,15 @@ import App from "./App.tsx";
 import { ApolloProvider } from "@apollo/client/react";
 import { apolloClient } from "./lib/apolloClient";
 import { BrowserRouter } from "react-router-dom";
+import { PhotosProvider } from "./hooks/usePhotos";
 
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
 		<ApolloProvider client={apolloClient}>
 			<BrowserRouter>
-				<App />
+				<PhotosProvider>
+					<App />
+				</PhotosProvider>
 			</BrowserRouter>
 		</ApolloProvider>
 	</StrictMode>,

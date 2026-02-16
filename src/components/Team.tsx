@@ -43,7 +43,7 @@ export default function Team() {
 	return (
 		<section
 			id="team"
-			className="relative overflow-hidden py-16 md:py-24 px-4 bg-neutral-950 text-neutral-100"
+			className="relative overflow-hidden py-20 md:py-24 px-5 sm:px-4 bg-neutral-950 text-neutral-100"
 		>
 			<div
 				className="absolute inset-0 z-0 pointer-events-none hidden sm:block"
@@ -67,7 +67,7 @@ export default function Team() {
 			</div>
 
 			<div className="container relative z-10 mx-auto max-w-6xl">
-				<div className="text-center mb-12 md:mb-14">
+				<div className="text-center mb-14 md:mb-14">
 					<p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
 						Zespół
 					</p>
@@ -78,12 +78,12 @@ export default function Team() {
 						className="mx-auto mb-6 h-px w-12 bg-accent-500/80"
 						aria-hidden
 					/>
-					<p className="mx-auto max-w-3xl text-lg font-thin leading-relaxed text-neutral-400 md:text-xl">
+					<p className="mx-auto max-w-3xl text-base sm:text-lg font-thin leading-relaxed text-neutral-400 md:text-xl">
 						Za RecruMates stoją ludzie z doświadczeniem w rekrutacji,
 						technologii i biznesie.
-						<br /> Łączy nas jedno: chęć tworzenia lepszych procesów i realnej
-						wartości dla firm oraz kandydatów. Poznaj osoby, które będą Twoimi
-						rekrutacyjnymi mates.
+						<br className="hidden sm:block" /> Łączy nas jedno: chęć tworzenia
+						lepszych procesów i realnej wartości dla firm oraz kandydatów.
+						Poznaj osoby, które będą Twoimi rekrutacyjnymi mates.
 					</p>
 				</div>
 
@@ -100,29 +100,36 @@ export default function Team() {
 				)}
 
 				{team.length > 0 && (
-					<div className="flex sm:flex-row flex-col justify-center items-center gap-10">
+					<div className="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-12 sm:gap-10 max-w-md sm:max-w-none mx-auto">
 						{team.map((member) => (
-							<div key={member.id} className="group text-center">
-								<div className="relative mb-4 rounded-xl overflow-hidden border border-neutral-800/80 bg-neutral-900/50 aspect-square max-w-[240px] mx-auto">
+							<article
+								key={member.id}
+								className="group text-center sm:flex-1 sm:max-w-[280px] relative overflow-hidden sm:overflow-visible rounded-2xl sm:rounded-none"
+							>
+								<div className="relative mb-5 sm:mb-4 rounded-2xl overflow-hidden aspect-square max-w-[200px] sm:max-w-[240px] mx-auto">
+									<div
+										className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5"
+										aria-hidden
+									/>
 									<img
 										src={member.photo.url}
 										alt={member.name}
-										className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+										className="relative w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
 										loading="lazy"
 										width={500}
 										height={500}
 									/>
 								</div>
-								<h3 className="text-lg font-semibold tracking-tight text-white mb-1">
+								<h3 className="text-xl sm:text-lg font-semibold tracking-tight text-white mb-1.5">
 									{member.name}
 								</h3>
-								<p className="text-sm font-medium text-accent-400/90 mb-0.5">
+								<p className="text-sm font-medium text-accent-400 sm:text-accent-400/90 mb-1 tracking-tight">
 									{member.role}
 								</p>
 								<p className="text-sm text-neutral-500 font-normal">
 									{member.location}
 								</p>
-							</div>
+							</article>
 						))}
 					</div>
 				)}

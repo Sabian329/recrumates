@@ -56,7 +56,11 @@ export default function Header() {
 							type="button"
 							onClick={() => setIsMenuOpen(!isMenuOpen)}
 							className="md:hidden p-2 text-neutral-600 dark:text-neutral-400"
-							aria-label="Toggle menu"
+							aria-label={
+								isMenuOpen ? "Zamknij menu nawigacji" : "Otwórz menu nawigacji"
+							}
+							aria-expanded={isMenuOpen}
+							aria-controls="mobile-main-nav"
 						>
 							<svg
 								className="w-6 h-6"
@@ -81,7 +85,11 @@ export default function Header() {
 
 				{/* Mobile Navigation */}
 				{isMenuOpen && (
-					<ul className="md:hidden mt-4 space-y-1 pb-4 border-t border-neutral-200/80 dark:border-neutral-800 pt-4">
+					<ul
+						id="mobile-main-nav"
+						className="md:hidden mt-4 space-y-1 pb-4 border-t border-neutral-200/80 dark:border-neutral-800 pt-4"
+						aria-label="Nawigacja mobilna"
+					>
 						{navItems.map((item) => (
 							<li key={item.href}>
 								<a

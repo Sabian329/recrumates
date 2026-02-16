@@ -29,9 +29,13 @@ export default function About() {
 	];
 
 	return (
-		<section id="about" className="py-24 px-4  bg-neutral-900">
+		<section
+			id="about"
+			className="py-24 px-4 bg-neutral-900"
+			aria-label="O RecruMates – wartości i podejście"
+		>
 			<div className="container mx-auto max-w-6xl">
-				<div className="text-center mb-14">
+				<header className="text-center mb-14">
 					<p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
 						Wartości
 					</p>
@@ -39,8 +43,8 @@ export default function About() {
 						O nas
 					</h2>
 					<div
-						className="mx-auto mb-6 h-px w-12 bg-accent-500/80"
-						aria-hidden
+						className="mx-auto mb  -6 h-px w-12 bg-accent-500/80"
+						aria-hidden="true"
 					/>
 					<p className="mx-auto max-w-3xl text-lg font-thin leading-relaxed text-neutral-600 dark:text-neutral-400 md:text-xl">
 						RecruMates to przestrzeń, w której technologia spotyka się z
@@ -50,17 +54,21 @@ export default function About() {
 						znaleźć miejsce, w którym mogą być sobą i rozwijać swój potencjał.
 						Nie wierzymy w masową rekrutację. Wierzymy w dobre dopasowanie.
 					</p>
-				</div>
+				</header>
 
-				<div className="mb-14">
-					<h3 className="mb-8 text-center text-lg font-semibold uppercase tracking-[0.08em] text-neutral-900 dark:text-white">
+				<section aria-labelledby="about-values-heading" className="mb-14">
+					<h3
+						id="about-values-heading"
+						className="mb-8 text-center text-lg font-semibold uppercase tracking-[0.08em] text-neutral-900 dark:text-white"
+					>
 						Co nas wyróżnia?
 					</h3>
 					<div className="grid md:grid-cols-2 gap-6">
 						{values.map(({ title, description, Icon }) => (
-							<div
+							<article
 								key={title}
 								className="bg-neutral-50 dark:bg-neutral-950/60 p-8 rounded-xl border border-neutral-200/80 dark:border-neutral-800/80 transition-colors"
+								aria-label={title}
 							>
 								<div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-accent-500/30 bg-accent-500/10 text-accent-500 dark:border-accent-400/30 dark:bg-accent-400/10">
 									<Icon className="h-5 w-5" aria-hidden="true" />
@@ -71,13 +79,19 @@ export default function About() {
 								<p className="text-sm font-normal leading-relaxed text-neutral-600 dark:text-neutral-400">
 									{description}
 								</p>
-							</div>
+							</article>
 						))}
 					</div>
-				</div>
+				</section>
 
-				<div className="bg-neutral-50 dark:bg-neutral-950/60 p-8 md:p-12 rounded-xl text-center border border-neutral-200/80 dark:border-neutral-800/80">
-					<h3 className="mb-4 text-xl font-semibold uppercase tracking-[0.08em] text-neutral-900 dark:text-white">
+				<section
+					className="bg-neutral-50 dark:bg-neutral-950/60 p-8 md:p-12 rounded-xl text-center border border-neutral-200/80 dark:border-neutral-800/80"
+					aria-labelledby="about-why-heading"
+				>
+					<h3
+						id="about-why-heading"
+						className="mb-4 text-xl font-semibold uppercase tracking-[0.08em] text-neutral-900 dark:text-white"
+					>
 						Dlaczego warto nas poznać?
 					</h3>
 					<p className="mx-auto mb-5 max-w-2xl text-base font-normal leading-relaxed text-neutral-600 dark:text-neutral-400">
@@ -88,7 +102,7 @@ export default function About() {
 					<p className="text-lg font-medium text-accent-600 dark:text-accent-400">
 						RecruMates. Tworzymy jakościową i przyjazną rekrutację na luzie.
 					</p>
-				</div>
+				</section>
 			</div>
 		</section>
 	);

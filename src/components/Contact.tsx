@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import contactBackground from "../assets/contact-bg.jpg";
+
 import {
 	MapPin,
 	Phone,
@@ -9,6 +9,9 @@ import {
 	Instagram,
 	Facebook,
 } from "lucide-react";
+import { useContactData } from "../hooks/useContactData";
+import { useSocialData } from "../hooks/useSocialData";
+import { usePhotos } from "../hooks/usePhotos";
 
 const inputBase =
 	"w-full rounded-lg border border-neutral-200 bg-white px-4 py-3 text-sm font-normal text-neutral-900 placeholder:text-neutral-400 transition-shadow focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30 dark:border-neutral-700 dark:bg-neutral-950/80 dark:text-white dark:placeholder:text-neutral-500";
@@ -22,6 +25,23 @@ export default function Contact() {
 	const [phoneCopied, setPhoneCopied] = useState(false);
 	const [emailCopied, setEmailCopied] = useState(false);
 	const formRef = useRef<HTMLFormElement>(null);
+
+	const { contact } = useContactData();
+	const { social } = useSocialData();
+	const { photos } = usePhotos();
+
+	const contactLocation = contact?.location ?? "Wrocław, Dolnośląskie";
+	const contactPhone = contact?.phone ?? "+48 609 896 011";
+	const contactEmail = contact?.email ?? "maciej.recrumates@gmail.com";
+	const contactEmailHref = `mailto:${contactEmail}`;
+	const contactBackgroundUrl = photos["contact"] ?? "";
+
+	const socialLinkedin =
+		social?.linkedin ?? "https://pl.linkedin.com/company/recrumates";
+	const socialInstagram =
+		social?.instagram ?? "https://www.instagram.com/recrumates";
+	const socialFacebook =
+		social?.facebook ?? "https://www.facebook.com/recrumates";
 
 	const accessKey = import.meta.env.VITE_MAIL_KEY;
 
@@ -126,7 +146,7 @@ export default function Contact() {
 			{/* Subtle background */}
 			<div className="absolute inset-0 z-0 opacity-[0.17]" aria-hidden>
 				<img
-					src={contactBackground}
+					src={contactBackgroundUrl}
 					alt=""
 					className="h-full w-full object-cover object-center"
 				/>
@@ -169,9 +189,7 @@ export default function Contact() {
 											Siedziba
 										</p>
 										<p className="mt-1 text-sm font-normal leading-relaxed text-neutral-900 dark:text-white">
-											Wrocław, Dolnośląskie
-											<br />
-											Polska
+											{contactLocation}
 										</p>
 									</div>
 								</li>
@@ -187,11 +205,11 @@ export default function Contact() {
 										<button
 											type="button"
 											onClick={() =>
-												handleCopyToClipboard("+48 609 896 011", "phone")
+												handleCopyToClipboard(contactPhone, "phone")
 											}
 											className="mt-1 text-sm font-normal text-accent-500  decoration-accent-500/30 underline-offset-2 hover:decoration-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:ring-offset-2 focus:ring-offset-neutral-950"
 										>
-											+48 609 896 011
+											{contactPhone}
 										</button>
 										{phoneCopied && (
 											<p className="mt-1 text-[11px] font-normal text-neutral-400">
@@ -212,10 +230,7 @@ export default function Contact() {
 										<button
 											type="button"
 											onClick={() =>
-												handleCopyToClipboard(
-													"maciej.recrumates@gmail.com",
-													"email",
-												)
+												handleCopyToClipboard(contactEmail, "email")
 											}
 											className="mt-1 text-sm font-normal text-accent-500 decoration-accent-500/30 underline-offset-2 hover:decoration-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:ring-offset-2 focus:ring-offset-neutral-950"
 										>
@@ -249,10 +264,10 @@ export default function Contact() {
 								<p className="mt-4 text-xs font-normal text-neutral-500 dark:text-neutral-400">
 									lub napisz na{" "}
 									<a
-										href="mailto:maciej.recrumates@gmail.com"
+										href={contactEmailHref}
 										className="text-accent-600 underline decoration-accent-500/30 underline-offset-2 hover:decoration-accent-500 dark:text-accent-400"
 									>
-										maciej.recrumates@gmail.com
+										{contactEmail}
 									</a>
 								</p>
 
@@ -262,7 +277,7 @@ export default function Contact() {
 									</span>
 									<div className="flex items-center gap-3">
 										<a
-											href="https://pl.linkedin.com/company/recrumates"
+											href={socialLinkedin}
 											target="_blank"
 											rel="noreferrer"
 											aria-label="LinkedIn"
@@ -271,7 +286,7 @@ export default function Contact() {
 											<Linkedin className="h-4 w-4" aria-hidden="true" />
 										</a>
 										<a
-											href="https://pl.linkedin.com/company/recrumates"
+											href={socialInstagram}
 											target="_blank"
 											rel="noreferrer"
 											aria-label="Instagram"
@@ -280,7 +295,7 @@ export default function Contact() {
 											<Instagram className="h-4 w-4" aria-hidden="true" />
 										</a>
 										<a
-											href="https://pl.linkedin.com/company/recrumates"
+											href={socialFacebook}
 											target="_blank"
 											rel="noreferrer"
 											aria-label="Facebook"
