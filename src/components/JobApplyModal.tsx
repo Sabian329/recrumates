@@ -43,6 +43,14 @@ export default function JobApplyModal({ job, onClose }: JobApplyModalProps) {
 		}
 	}, [status]);
 
+	useEffect(() => {
+		const prev = document.body.style.overflow;
+		document.body.style.overflow = "hidden";
+		return () => {
+			document.body.style.overflow = prev;
+		};
+	}, []);
+
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
@@ -95,12 +103,12 @@ export default function JobApplyModal({ job, onClose }: JobApplyModalProps) {
 
 	return (
 		<div
-			className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4"
+			className="fixed inset-0 z-50 flex items-stretch sm:items-center justify-center bg-neutral-950 sm:bg-black/70 p-0 sm:px-4"
 			role="dialog"
 			aria-modal="true"
 			aria-labelledby="apply-modal-title"
 		>
-			<div className="w-full max-w-lg rounded-2xl border border-neutral-700 bg-neutral-950 p-6 shadow-xl">
+			<div className="w-full h-full max-h-dvh sm:h-auto sm:max-h-[90vh] sm:max-w-lg rounded-none sm:rounded-2xl border-0 sm:border border-neutral-700 bg-neutral-950 p-4 pb-[env(safe-area-inset-bottom)] pt-[max(1rem,env(safe-area-inset-top))] sm:p-6 shadow-xl overflow-y-auto flex flex-col min-h-0">
 				{status === "success" ? (
 					<div className="flex flex-1 flex-col items-center justify-center text-center py-8">
 						<div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-500/10 text-green-400">
@@ -134,7 +142,7 @@ export default function JobApplyModal({ job, onClose }: JobApplyModalProps) {
 							<button
 								type="button"
 								onClick={onClose}
-								className="text-neutral-500 hover:text-neutral-300"
+								className="flex-shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center -mr-2 -mt-1 text-2xl text-neutral-500 hover:text-neutral-300 touch-manipulation"
 								aria-label="Zamknij okno aplikacji"
 							>
 								×
@@ -223,7 +231,7 @@ export default function JobApplyModal({ job, onClose }: JobApplyModalProps) {
 								<Textarea
 									id="apply-message"
 									name="message"
-									rows={4}
+									rows={3}
 									required
 									placeholder="Napisz kilka zdań o swoim doświadczeniu i dlaczego ta rola Cię interesuje..."
 									className="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-2.5 text-sm text-white placeholder:text-neutral-500 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30 resize-none"

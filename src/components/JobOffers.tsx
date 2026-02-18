@@ -195,7 +195,7 @@ export default function JobOffers() {
 						<h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-6 tracking-tight">
 							Opublikowane oferty pracy
 						</h3>
-						<ul className="space-y-4 max-h-[500px] overflow-y-auto custom-scrollbar list-none">
+						<ul className="space-y-4 xs:max-h-[500px] max-h-[900px] overflow-y-auto custom-scrollbar list-none">
 							{jobOffers.map((job) => (
 								<li key={job.id}>
 									<article
@@ -291,10 +291,10 @@ export default function JobOffers() {
 															: handleOpenApplyModal(job)
 													}
 													className={clsx(
-														"whitespace-nowrap rounded-lg border px-5 py-3 text-sm font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950",
+														"whitespace-nowrap rounded-lg border px-5 py-3 text-sm font-medium  transition-colors focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-950",
 														job.active === false
-															? "bg-neutral-600 cursor-not-allowed opacity-60 pointer-events-none"
-															: "bg-accent-600 hover:bg-accent-500 border-accent-500/50",
+															? "bg-neutral-600 cursor-not-allowed opacity-60 pointer-events-none focus:outline-none focus:ring-0 text-neutral-200"
+															: "bg-accent-600 hover:bg-accent-500 border-accent-500/50 text-white",
 													)}
 													aria-disabled={job.active === false}
 												>
