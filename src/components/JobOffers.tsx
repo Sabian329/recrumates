@@ -3,7 +3,7 @@ import clsx from "clsx";
 import baseLogo from "../assets/BASELOGO.svg";
 import { CalendarDays, MapPin } from "lucide-react";
 
-const SITE_URL = "https://recrumates.pl";
+const SITE_URL = "https://recrumates.com";
 import { gql } from "@apollo/client";
 import { useQuery } from "@apollo/client/react";
 import JobApplyModal from "./JobApplyModal";

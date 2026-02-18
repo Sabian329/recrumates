@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://recrumates.pl/sitemap.xml
+Sitemap: https://recrumates.com/sitemap.xml
 
