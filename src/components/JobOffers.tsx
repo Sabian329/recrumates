@@ -4,6 +4,10 @@ import baseLogo from "../assets/BASELOGO.svg";
 import { CalendarDays, MapPin } from "lucide-react";
 
 const SITE_URL = "https://recrumates.com";
+
+function isLinkEmpty(link: string | null | undefined): boolean {
+	return !link || link.trim() === "";
+}
 import { gql } from "@apollo/client";
 import { useQuery } from "@apollo/client/react";
 import JobApplyModal from "./JobApplyModal";
@@ -119,10 +123,9 @@ export default function JobOffers() {
 							addressCountry: "PL",
 						},
 					},
-					url:
-						job.link && job.link.trim() !== ""
-							? job.link
-							: `${SITE_URL}/#jobs-${job.id}`,
+					url: isLinkEmpty(job.link)
+						? `${SITE_URL}/#jobs-${job.id}`
+						: (job.link as string).trim(),
 				},
 			})),
 		};
@@ -222,9 +225,11 @@ export default function JobOffers() {
 																	: "text-white",
 															)}
 														>
-															{job.link && job.link.trim() !== "" ? (
+															{isLinkEmpty(job.link) ? (
+																job.title
+															) : (
 																<a
-																	href={job.link}
+																	href={(job.link as string).trim()}
 																	target="_blank"
 																	rel="noopener noreferrer nofollow"
 																	title={`Zobacz pełną ofertę: ${job.title}`}
@@ -236,8 +241,6 @@ export default function JobOffers() {
 																>
 																	{job.title}
 																</a>
-															) : (
-																job.title
 															)}
 														</h4>
 														<p className="text-neutral-500 dark:text-neutral-400 text-sm font-normal">
